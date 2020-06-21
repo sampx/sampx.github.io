@@ -1551,7 +1551,7 @@ pre code {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #67ff57;
+  background: #12f773;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1771,7 +1771,7 @@ pre code {
   width: 100%;
 }
 .with-love {
-  color: #ff0000;
+  color: #808080;
   display: inline-block;
   margin: 0 5px;
   animation: iconAnimate 1.33s ease-in-out infinite;

@@ -26,12 +26,12 @@
     var CONFIG = {"hostname":"blog.udock.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#37c6c0","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="从hexo-cli开始（hexo-cli的安装请自行查阅网站）hexo命令从usr&#x2F;local&#x2F;bin目录加载，调用..&#x2F;lib&#x2F;node_modules&#x2F;hexo-cli&#x2F;bin&#x2F;hexo,再调用..&#x2F;lib&#x2F;hexo.js 主程序模块入口entry:1.获取命令cmd和参数args，并对args用minimist进行处理。2.加载了context.js（见”context模块”节）3.加载了l">
+  <meta name="description" content="从hexo-cli开始（hexo-cli的安装请自行查阅网站）hexo命令从usr&#x2F;local&#x2F;bin目录加载，调用..&#x2F;lib&#x2F;node_modules&#x2F;hexo-cli&#x2F;bin&#x2F;hexo,再调用..&#x2F;lib&#x2F;hexo.js 主程序模块入口entry:1.获取命令cmd和参数args，并对args用minimist进行处理。2.加载了context.js（见&quot;context模块&amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo源码分析">
 <meta property="og:url" content="http://blog.udock.cn/zh-cn/2016/9/9/hexo%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html">
 <meta property="og:site_name" content="uDock">
-<meta property="og:description" content="从hexo-cli开始（hexo-cli的安装请自行查阅网站）hexo命令从usr&#x2F;local&#x2F;bin目录加载，调用..&#x2F;lib&#x2F;node_modules&#x2F;hexo-cli&#x2F;bin&#x2F;hexo,再调用..&#x2F;lib&#x2F;hexo.js 主程序模块入口entry:1.获取命令cmd和参数args，并对args用minimist进行处理。2.加载了context.js（见”context模块”节）3.加载了l">
+<meta property="og:description" content="从hexo-cli开始（hexo-cli的安装请自行查阅网站）hexo命令从usr&#x2F;local&#x2F;bin目录加载，调用..&#x2F;lib&#x2F;node_modules&#x2F;hexo-cli&#x2F;bin&#x2F;hexo,再调用..&#x2F;lib&#x2F;hexo.js 主程序模块入口entry:1.获取命令cmd和参数args，并对args用minimist进行处理。2.加载了context.js（见&quot;context模块&amp;quo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-09-22T09:29:23.000Z">
 <meta property="article:modified_time" content="2016-09-22T09:29:23.000Z">
@@ -157,6 +157,16 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
 
   </li>
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a>
+
+  </li>
+
+
+      
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -231,6 +241,9 @@
       <span class="links-of-author-item">
         <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vc2FtcHg=" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx"><i class="fab fa-weibo fa-fw"></i></span>
       </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
   </div>
 
 
@@ -354,15 +367,15 @@
 
       
         <h2 id="从hexo-cli开始"><a href="#从hexo-cli开始" class="headerlink" title="从hexo-cli开始"></a>从hexo-cli开始</h2><p>（hexo-cli的安装请自行查阅网站）<br>hexo命令从usr/local/bin目录加载，调用../lib<br>/node_modules/hexo-cli/bin/hexo,再调用../lib/hexo.js</p>
-<h2 id="主程序模块"><a href="#主程序模块" class="headerlink" title="主程序模块"></a>主程序模块</h2><p>入口entry:<br>1.获取命令cmd和参数args，并对args用minimist进行处理。<br>2.加载了context.js（见”context模块”节）<br>3.加载了logger，在context中定义<br>4.定义了错误处理方法<br>5.findPkg从当前目录或者–cwd指定的工作目录，一直向上级目录查找package.json,直到找到含有此文件，并且是合法的hexo站点的目录路径后返回，如果没找到hexo模块则执行第8步<br>6.设置hexo的根目录为base_dir<br>7.加载hexo模块(如果hexo不是全局安装的，将无法加载，因此需要在hexo站点目录执行，或者使用–cwd参数指定站点目录)，若主模块加载成功，将new一个Hexo对象并返回（见“hexo主模块”节）<br>8.执行console模块（lib/console/index.js），如果获取到hexo模块则传入，否则只是传入当前的上下文（context模块），将help,init,version模块注册到extend.console<br>9.执行hexo.init(),如果没有找到hexo主模块，则context中init是一个空方法，估计是只为了触发init事件，便于插件在此时挂载，否则执行hexo主模块中的init方法。</p>
-<h2 id="context模块"><a href="#context模块" class="headerlink" title="context模块"></a>context模块</h2><p>入口构造函数：<br>1.传入命令路径cmd和参数args<br>2.将自身注册为事件发射器（EventEmitter）<br>3.初始化logger<br>4.加载了Console Extend模块（extend/console.js），放在extend属性中。（见”extend/console模块”节）<br>5.定义call方法，通过名字获取extend中的插件，并调用。</p>
+<h2 id="主程序模块"><a href="#主程序模块" class="headerlink" title="主程序模块"></a>主程序模块</h2><p>入口entry:<br>1.获取命令cmd和参数args，并对args用minimist进行处理。<br>2.加载了context.js（见&quot;context模块&quot;节）<br>3.加载了logger，在context中定义<br>4.定义了错误处理方法<br>5.findPkg从当前目录或者--cwd指定的工作目录，一直向上级目录查找package.json,直到找到含有此文件，并且是合法的hexo站点的目录路径后返回，如果没找到hexo模块则执行第8步<br>6.设置hexo的根目录为base_dir<br>7.加载hexo模块(如果hexo不是全局安装的，将无法加载，因此需要在hexo站点目录执行，或者使用--cwd参数指定站点目录)，若主模块加载成功，将new一个Hexo对象并返回（见“hexo主模块”节）<br>8.执行console模块（lib/console/index.js），如果获取到hexo模块则传入，否则只是传入当前的上下文（context模块），将help,init,version模块注册到extend.console<br>9.执行hexo.init(),如果没有找到hexo主模块，则context中init是一个空方法，估计是只为了触发init事件，便于插件在此时挂载，否则执行hexo主模块中的init方法。</p>
+<h2 id="context模块"><a href="#context模块" class="headerlink" title="context模块"></a>context模块</h2><p>入口构造函数：<br>1.传入命令路径cmd和参数args<br>2.将自身注册为事件发射器（EventEmitter）<br>3.初始化logger<br>4.加载了Console Extend模块（extend/console.js），放在extend属性中。（见&quot;extend/console模块&quot;节）<br>5.定义call方法，通过名字获取extend中的插件，并调用。</p>
 <h2 id="extend-console模块"><a href="#extend-console模块" class="headerlink" title="extend/console模块"></a>extend/console模块</h2><p>console模块有两个属性：</p>
 <ul>
 <li>store 存放插件function对象</li>
 <li>alias 存放以插件名称缩写的</li>
 </ul>
 <p>定义register方法，用来注册插件，插件都包装成Promise</p>
-<h2 id="hexo主模块"><a href="#hexo主模块" class="headerlink" title="hexo主模块"></a>hexo主模块</h2><p>构造函数：<br>1.获取路径和参数，注意所有的文件目录路径加载都是基于你执行目录或用–cwd制定的目录，正常应该是你网站生成器的主目录。<br>2.将自己注册为事件发射器<br>3.定义资源目录：public、source、node_modules、scripts、scaffolds、themes以及themes下面的scripts目录<br>4.将各类调试以及生成参数（包括启动hexo时的参数），定义到env属性中<br>5.加载配置文件，默认是基目录下的_config.yml，也可以从–config参数自行制定<br>6.加载扩展</p>
+<h2 id="hexo主模块"><a href="#hexo主模块" class="headerlink" title="hexo主模块"></a>hexo主模块</h2><p>构造函数：<br>1.获取路径和参数，注意所有的文件目录路径加载都是基于你执行目录或用--cwd制定的目录，正常应该是你网站生成器的主目录。<br>2.将自己注册为事件发射器<br>3.定义资源目录：public、source、node_modules、scripts、scaffolds、themes以及themes下面的scripts目录<br>4.将各类调试以及生成参数（包括启动hexo时的参数），定义到env属性中<br>5.加载配置文件，默认是基目录下的_config.yml，也可以从--config参数自行制定<br>6.加载扩展</p>
 <ul>
 <li>console： 命令注册中心，见“extend/console模块“节</li>
 <li>deployer: 部署插件注册中心</li>
@@ -455,7 +468,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Samuel</span>
+  <span class="author" itemprop="copyrightHolder">uDock</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
@@ -465,7 +478,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:06</span>
+    <span title="站点阅读时长">1:07</span>
 </div>
 
         

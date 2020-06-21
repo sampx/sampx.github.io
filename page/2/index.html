@@ -154,6 +154,16 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
 
   </li>
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a>
+
+  </li>
+
+
+      
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -227,6 +237,9 @@
       <span class="links-of-author-item">
         <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vc2FtcHg=" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx"><i class="fab fa-weibo fa-fw"></i></span>
       </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
   </div>
 
 
@@ -324,13 +337,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>1.9k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
             <div class="post-description">RabbitMQ学习笔记</div>
 
@@ -345,9 +358,9 @@
       
           <p>仅供学习记录备查使用。<br><span class="exturl" data-url="aHR0cDovL3JhYmJpdG1xLm1yLXBpbmcuY29tLw==">原始网站<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h2><ul>
-<li>生产(Producing)意思就是发送。发送消息的程序就是一个生产者(producer)。我们一般用 “P” 来表示</li>
+<li>生产(Producing)意思就是发送。发送消息的程序就是一个生产者(producer)。我们一般用 &quot;P&quot; 来表示</li>
 <li>队列(queue)就是邮箱的名称。消息通过你的应用程序和 RabbitMQ 进行传输，它们能够只存储在一个队列（queue）中。 队列（queue）没有任何限制，你要存储多少消息都可以——基本上是一个无限的缓冲。多个生产者（producers）能够把消息发送给同一个队列，同样，多个消费者（consumers）也能够从同一个队列（queue）中获取数据。队列可以绘制成这样（图上是队列的名称）</li>
-<li>消费（Consuming）和获取消息是一样的意思。一个消费者（consumer）就是一个等待获取消息的程序。我们把它绘制为 “C”</li>
+<li>消费（Consuming）和获取消息是一样的意思。一个消费者（consumer）就是一个等待获取消息的程序。我们把它绘制为 &quot;C&quot;</li>
 <li>工作队列（又称：任务队列——Task Queues）是为了避免等待一些占用大量资源、时间的操作。当我们把任务（Task）当作消息发送到队列中，一个运行在后台的工作者（worker）进程就会取出任务然后处理。当你运行多个工作者（workers），任务就会在它们之间共享。</li>
 </ul>
 <h2 id="机制"><a href="#机制" class="headerlink" title="机制"></a>机制</h2><p>RabbitMQ 使用的是 AMQP 协议</p>
@@ -359,7 +372,7 @@
 <p>直连交换机（direct exchange），可以通过路由选择具体的消费者，但没办法基于多个标准执行路由操作</p>
 <p>主题交换机（topic exchange）一个携带着特定路由键的消息会被主题交换机投递给绑定键与之想匹配的队列</p>
 <blockquote>
-<p> 路由键必须是一个由.分隔开的词语列表。这些单词随便是什么都可以，但是最好是跟携带它们的消息有关系的词汇。以下是几个推荐的例子：”stock.usd.nyse”, “nyse.vmw”, “quick.orange.rabbit”。词语的个数可以随意，但是不要超过255字节。绑定键也必须拥有同样的格式。</p>
+<p> 路由键必须是一个由.分隔开的词语列表。这些单词随便是什么都可以，但是最好是跟携带它们的消息有关系的词汇。以下是几个推荐的例子：&quot;stock.usd.nyse&quot;, &quot;nyse.vmw&quot;, &quot;quick.orange.rabbit&quot;。词语的个数可以随意，但是不要超过255字节。绑定键也必须拥有同样的格式。</p>
 </blockquote>
 <p>绑定键和路由键有两个特殊应用方式：</p>
 <ul>
@@ -369,7 +382,7 @@
 <p><img data-src="http://www.rabbitmq.com/img/tutorials/python-five.png" alt="image"></p>
 <p>主题交换机是很强大的，它可以表现出跟其他交换机类似的行为</p>
 <ul>
-<li>当一个队列的绑定键为 “#”（井号） 的时候，这个队列将会无视消息的路由键，接收所有的消息。</li>
+<li>当一个队列的绑定键为 &quot;#&quot;（井号） 的时候，这个队列将会无视消息的路由键，接收所有的消息。</li>
 <li>当 * (星号) 和 # (井号) 这两个特殊字符都未在绑定键中出现的时候，此时主题交换机就拥有的直连交换机的行为。</li>
 </ul>
 <p>todo：头交换机</p>
@@ -515,7 +528,7 @@
 <h2 id="使用过程中的问题及解决办法"><a href="#使用过程中的问题及解决办法" class="headerlink" title="使用过程中的问题及解决办法"></a>使用过程中的问题及解决办法</h2><ol>
 <li><code>Failed to load resource: net::ERR_NAME_NOT_RESOLVED</code><ul>
 <li>问题原因：通常是由于系统设置了代理如Shadowsocks等。</li>
-<li>解决方案：关闭代理，点击微信web开发者工具栏“动作”-“设置”，选择“不使用任何代理，勾选后直连网络”。</li>
+<li>解决方案：关闭代理，点击微信web开发者工具栏“动作”-&quot;设置&quot;，选择“不使用任何代理，勾选后直连网络”。</li>
 </ul>
 </li>
 <li>console中提示asdebug.js错误<ul>
@@ -621,15 +634,15 @@
 
       
           <h2 id="从hexo-cli开始"><a href="#从hexo-cli开始" class="headerlink" title="从hexo-cli开始"></a>从hexo-cli开始</h2><p>（hexo-cli的安装请自行查阅网站）<br>hexo命令从usr/local/bin目录加载，调用../lib<br>/node_modules/hexo-cli/bin/hexo,再调用../lib/hexo.js</p>
-<h2 id="主程序模块"><a href="#主程序模块" class="headerlink" title="主程序模块"></a>主程序模块</h2><p>入口entry:<br>1.获取命令cmd和参数args，并对args用minimist进行处理。<br>2.加载了context.js（见”context模块”节）<br>3.加载了logger，在context中定义<br>4.定义了错误处理方法<br>5.findPkg从当前目录或者–cwd指定的工作目录，一直向上级目录查找package.json,直到找到含有此文件，并且是合法的hexo站点的目录路径后返回，如果没找到hexo模块则执行第8步<br>6.设置hexo的根目录为base_dir<br>7.加载hexo模块(如果hexo不是全局安装的，将无法加载，因此需要在hexo站点目录执行，或者使用–cwd参数指定站点目录)，若主模块加载成功，将new一个Hexo对象并返回（见“hexo主模块”节）<br>8.执行console模块（lib/console/index.js），如果获取到hexo模块则传入，否则只是传入当前的上下文（context模块），将help,init,version模块注册到extend.console<br>9.执行hexo.init(),如果没有找到hexo主模块，则context中init是一个空方法，估计是只为了触发init事件，便于插件在此时挂载，否则执行hexo主模块中的init方法。</p>
-<h2 id="context模块"><a href="#context模块" class="headerlink" title="context模块"></a>context模块</h2><p>入口构造函数：<br>1.传入命令路径cmd和参数args<br>2.将自身注册为事件发射器（EventEmitter）<br>3.初始化logger<br>4.加载了Console Extend模块（extend/console.js），放在extend属性中。（见”extend/console模块”节）<br>5.定义call方法，通过名字获取extend中的插件，并调用。</p>
+<h2 id="主程序模块"><a href="#主程序模块" class="headerlink" title="主程序模块"></a>主程序模块</h2><p>入口entry:<br>1.获取命令cmd和参数args，并对args用minimist进行处理。<br>2.加载了context.js（见&quot;context模块&quot;节）<br>3.加载了logger，在context中定义<br>4.定义了错误处理方法<br>5.findPkg从当前目录或者--cwd指定的工作目录，一直向上级目录查找package.json,直到找到含有此文件，并且是合法的hexo站点的目录路径后返回，如果没找到hexo模块则执行第8步<br>6.设置hexo的根目录为base_dir<br>7.加载hexo模块(如果hexo不是全局安装的，将无法加载，因此需要在hexo站点目录执行，或者使用--cwd参数指定站点目录)，若主模块加载成功，将new一个Hexo对象并返回（见“hexo主模块”节）<br>8.执行console模块（lib/console/index.js），如果获取到hexo模块则传入，否则只是传入当前的上下文（context模块），将help,init,version模块注册到extend.console<br>9.执行hexo.init(),如果没有找到hexo主模块，则context中init是一个空方法，估计是只为了触发init事件，便于插件在此时挂载，否则执行hexo主模块中的init方法。</p>
+<h2 id="context模块"><a href="#context模块" class="headerlink" title="context模块"></a>context模块</h2><p>入口构造函数：<br>1.传入命令路径cmd和参数args<br>2.将自身注册为事件发射器（EventEmitter）<br>3.初始化logger<br>4.加载了Console Extend模块（extend/console.js），放在extend属性中。（见&quot;extend/console模块&quot;节）<br>5.定义call方法，通过名字获取extend中的插件，并调用。</p>
 <h2 id="extend-console模块"><a href="#extend-console模块" class="headerlink" title="extend/console模块"></a>extend/console模块</h2><p>console模块有两个属性：</p>
 <ul>
 <li>store 存放插件function对象</li>
 <li>alias 存放以插件名称缩写的</li>
 </ul>
 <p>定义register方法，用来注册插件，插件都包装成Promise</p>
-<h2 id="hexo主模块"><a href="#hexo主模块" class="headerlink" title="hexo主模块"></a>hexo主模块</h2><p>构造函数：<br>1.获取路径和参数，注意所有的文件目录路径加载都是基于你执行目录或用–cwd制定的目录，正常应该是你网站生成器的主目录。<br>2.将自己注册为事件发射器<br>3.定义资源目录：public、source、node_modules、scripts、scaffolds、themes以及themes下面的scripts目录<br>4.将各类调试以及生成参数（包括启动hexo时的参数），定义到env属性中<br>5.加载配置文件，默认是基目录下的_config.yml，也可以从–config参数自行制定<br>6.加载扩展</p>
+<h2 id="hexo主模块"><a href="#hexo主模块" class="headerlink" title="hexo主模块"></a>hexo主模块</h2><p>构造函数：<br>1.获取路径和参数，注意所有的文件目录路径加载都是基于你执行目录或用--cwd制定的目录，正常应该是你网站生成器的主目录。<br>2.将自己注册为事件发射器<br>3.定义资源目录：public、source、node_modules、scripts、scaffolds、themes以及themes下面的scripts目录<br>4.将各类调试以及生成参数（包括启动hexo时的参数），定义到env属性中<br>5.加载配置文件，默认是基目录下的_config.yml，也可以从--config参数自行制定<br>6.加载扩展</p>
 <ul>
 <li>console： 命令注册中心，见“extend/console模块“节</li>
 <li>deployer: 部署插件注册中心</li>
@@ -717,7 +730,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>3.2k</span>
+              <span>3.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -748,7 +761,7 @@
 <ul>
 <li>安装minimist包</li>
 </ul>
-<p>npm install minimist –save</p>
+<p>npm install minimist --save</p>
 <ul>
 <li>新建minimist文件夹并创建一个新文件parse.js，写入以下代码：</li>
 </ul>
@@ -764,16 +777,16 @@
 <blockquote>
 <ul>
 <li>opts.string : a string or array of strings argument names to always treat as strings</li>
-<li>opts.boolean : a boolean, string or array of strings to always treat as booleans. if true will treat all double hyphenated arguments without equal signs as boolean (e.g. affects –foo, not -f or –foo=bar)</li>
+<li>opts.boolean : a boolean, string or array of strings to always treat as booleans. if true will treat all double hyphenated arguments without equal signs as boolean (e.g. affects --foo, not -f or --foo=bar)</li>
 <li>opts.alias : an object mapping string names to strings or arrays of string argument names to use as aliases</li>
 <li>opts.default : an object mapping string argument names to default values</li>
 <li>opts.stopEarly : when true, populate argv._ with everything after the first non-option</li>
-<li>opts[‘–’] : when true, populate argv._ with everything before the – and  argv[‘–’] with everything after the –. Here’s an example:</li>
+<li>opts[&#39;--&#39;] : when true, populate argv._ with everything before the -- and  argv[&#39;--&#39;] with everything after the --. Here&#39;s an example:</li>
 </ul>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require(&#39;&#39;minimist&#39;&#39;)(&#39;one two three -- four five --six&#39;.split(&#39; &#39;), &#123; &#39;--&#39;: true &#125;)</span><br><span class="line">&#123; _: [ &#39;one&#39;, &#39;two&#39;, &#39;three&#39; ],</span><br><span class="line">  &#39;--&#39;: [ &#39;four&#39;, &#39;five&#39;, &#39;--six&#39; ] &#125;</span><br></pre></td></tr></table></figure>
 
-<p>Note that with opts[‘–’] set, parsing for arguments still stops after the –.</p>
+<p>Note that with opts[&#39;--&#39;] set, parsing for arguments still stops after the --.</p>
 <blockquote>
 <ul>
 <li>opts.unknown - a function which is invoked with a command line parameter not defined in the opts configuration object. If the function returns false, the unknown option is not added to argv.</li>
@@ -783,7 +796,7 @@
 <ul>
 <li>安装</li>
 </ul>
-<p>npm install camel-case –save</p>
+<p>npm install camel-case --save</p>
 <ul>
 <li>使用</li>
 </ul>
@@ -793,7 +806,7 @@
 <ul>
 <li>安装</li>
 </ul>
-<p>npm install no-case –save</p>
+<p>npm install no-case --save</p>
 <ul>
 <li>使用</li>
 </ul>
@@ -803,7 +816,7 @@
 <ul>
 <li>安装</li>
 </ul>
-<p>npm install –save-dev node-readme</p>
+<p>npm install --save-dev node-readme</p>
 <ul>
 <li>使用<br>在package.json文件中为你的模块增加一个命令：然后可以用 npm run readme 命令来生成README.md文件</li>
 </ul>
@@ -914,7 +927,7 @@
 <p>name和version是package.json中最重要的两个字段，也是发布到NPM平台上的唯一标识，如果没有正确设置这两个字段，包就不能发布和被下载。<br><strong>name字段：</strong>新版本的NPM可以指定scope, 名字可以加前缀标识，如<code>@ijse/mypackage</code><br><strong>version字段：</strong>取值需要符合node-semver的规则，<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lzYWFjcy9ub2RlLXNlbXZlcg==">详见文档<i class="fa fa-external-link-alt"></i></span><br>下面是官方给出的一些建议:</p>
 <blockquote>
 <ul>
-<li>名字里不要再包含”js”和”node”，因为默认NPM包就是node.js程序，不过你可以通过engines字段来指定。</li>
+<li>名字里不要再包含&quot;js&quot;和&quot;node&quot;，因为默认NPM包就是node.js程序，不过你可以通过engines字段来指定。</li>
 <li>名字将会被作为url的一部分，所有要符合http url的一般命名规则，不能包含url非法字符，也不能以.和_开头。</li>
 <li>名字也将作为require()命令的参数，所以应该尽量简明。</li>
 <li>如果包要发布到NPM平台上的话，最好先检查下有没有重名, 并且字母只能全部小写。</li>
@@ -971,7 +984,7 @@
 <li><code>~version</code> 大概匹配某个版本</li>
 <li><code>^version</code> 兼容某个版本</li>
 <li>1.2.x 可以是1.2.0, 1.2.1等等，但不能是1.3.0</li>
-<li>http://… 指定tarball的url地址</li>
+<li>http://... 指定tarball的url地址</li>
 <li><code>*</code> 任何版本都可以</li>
 <li><code>&quot;&quot;</code> 同上</li>
 <li><code>version1 - version2</code>：说明 <code>&gt;=version1 &lt;=version2</code></li>
@@ -1243,7 +1256,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Samuel</span>
+  <span class="author" itemprop="copyrightHolder">uDock</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
@@ -1253,7 +1266,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:06</span>
+    <span title="站点阅读时长">1:07</span>
 </div>
 
         

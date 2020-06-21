@@ -154,6 +154,16 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
 
   </li>
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a>
+
+  </li>
+
+
+      
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -227,6 +237,9 @@
       <span class="links-of-author-item">
         <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vc2FtcHg=" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx"><i class="fab fa-weibo fa-fw"></i></span>
       </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
   </div>
 
 
@@ -489,8 +502,8 @@
 <h2 id="3、-n-m-符号"><a href="#3、-n-m-符号" class="headerlink" title="3、\{n,m\} 符号"></a>3、<code>\{n,m\}</code> 符号</h2><p>精确匹配前一个字符的重复次数<br><code>\{n\}</code> 匹配前面的字符n次<br><code>\{n,\}</code> 匹配前面的字符n次以上,含n次<br><code>\{n,m\}</code> 匹配前面的字符n到m次<br>注意：<strong><em>egrep下，不能输入“\”符号</em></strong></p>
 <h2 id="4、-符号"><a href="#4、-符号" class="headerlink" title="4、^ 符号"></a>4、<code>^</code> 符号</h2><p>匹配开头字符<br>例如：<code>^root</code> 匹配以root开头的行</p>
 <h2 id="5、-符号"><a href="#5、-符号" class="headerlink" title="5、$ 符号"></a>5、<code>$</code> 符号</h2><p>匹配行尾</p>
-<h2 id="6、-符号"><a href="#6、-符号" class="headerlink" title="6、[] 符号"></a>6、<code>[]</code> 符号</h2><p>匹配方括号内出现的任一字符，如果范围比较大，可以使用‘-’号进行范围限定，如[A-Z]匹配任意大写字符,[A-Za-z0-9]匹配任意字符和数字。<br>‘[]’内出现’^’符号代表取反,代表不是</p>
-<h2 id="7、-符号"><a href="#7、-符号" class="headerlink" title="7、\ 符号"></a>7、<code>\</code> 符号</h2><p>转义字符<br>例如：<code>\.*</code> 代表匹配任意长度的’.’,而不是任意字符</p>
+<h2 id="6、-符号"><a href="#6、-符号" class="headerlink" title="6、[] 符号"></a>6、<code>[]</code> 符号</h2><p>匹配方括号内出现的任一字符，如果范围比较大，可以使用‘-’号进行范围限定，如[A-Z]匹配任意大写字符,[A-Za-z0-9]匹配任意字符和数字。<br>&#39;[]&#39;内出现&#39;^&#39;符号代表取反,代表不是</p>
+<h2 id="7、-符号"><a href="#7、-符号" class="headerlink" title="7、\ 符号"></a>7、<code>\</code> 符号</h2><p>转义字符<br>例如：<code>\.*</code> 代表匹配任意长度的&#39;.&#39;,而不是任意字符</p>
 <h2 id="8、-lt-和-gt-符号"><a href="#8、-lt-和-gt-符号" class="headerlink" title="8、\&lt; 和 \&gt; 符号"></a>8、<code>\&lt;</code> 和 <code>\&gt;</code> 符号</h2><p>分别界定单词的左边和右边<br>例如:<code>\&lt;hello\&gt;</code>精确匹配hello,而不是helloworld</p>
 <h2 id="9、-d-符号"><a href="#9、-d-符号" class="headerlink" title="9、\d 符号"></a>9、<code>\d</code> 符号</h2><p>匹配一个数字,等价于<code>[0-9]</code><br>注意:<code>\d</code>有时有兼容性问题,如:<code>echo 123 | grep &#39;\d&#39;</code><br>匹配不成功是因为<code>\d</code>是一种Perl兼容模式的表达式,这种情况下要加上<code>-P</code>参数:<code>echo 123 | grep -P &#39;\d&#39;</code></p>
 <h2 id="10、-b-符号"><a href="#10、-b-符号" class="headerlink" title="10、\b 符号"></a>10、<code>\b</code> 符号</h2><p>匹配单词边界，等价于<code>\&lt;\&gt;</code></p>
@@ -526,7 +539,7 @@
 <li><code>[:space:]</code> 所有空白字符(新行,空格,制表符)</li>
 <li><code>[:xdigit:]</code> 十六进制数字(0-9,a-f)</li>
 </ul>
-<p>例子：<code>grep ^[[:upper:]] greptest.txt</code><br>    The cat’s name is Tom, what’s the mouse’s name?<br>    The mouse’s NAME is Jerry<br>    They are good friends.<br>    Upper case<br><code>grep ^[[:xdigit:]] greptest.txt</code><br>    100% means pure<br>    021-38749087<br>    0556-34538979<br>    010 66508749<br>    01066508749</p>
+<p>例子：<code>grep ^[[:upper:]] greptest.txt</code><br>    The cat&#39;s name is Tom, what&#39;s the mouse&#39;s name?<br>    The mouse&#39;s NAME is Jerry<br>    They are good friends.<br>    Upper case<br><code>grep ^[[:xdigit:]] greptest.txt</code><br>    100% means pure<br>    021-38749087<br>    0556-34538979<br>    010 66508749<br>    01066508749</p>
 
       
     </div>
@@ -603,7 +616,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>622</span>
+              <span>624</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -622,7 +635,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Homebrew是OS X上类似APT(apt-get)、Yum的一个软件包管理器。 所以，虽然你侥幸下载到了brew，但你肯定是无法更新brew的。原因你懂。不过虽然不能更新brew，但这只是指brew这个管理器本身罢了，软件还是可以安装的。但由于无法使用brew update也就无法更新…<br>** 注意：本方法适合1.1.6版的Homebrew，老版本要用另外的办法（文中有介绍）</p>
+          <p>Homebrew是OS X上类似APT(apt-get)、Yum的一个软件包管理器。 所以，虽然你侥幸下载到了brew，但你肯定是无法更新brew的。原因你懂。不过虽然不能更新brew，但这只是指brew这个管理器本身罢了，软件还是可以安装的。但由于无法使用brew update也就无法更新...<br>** 注意：本方法适合1.1.6版的Homebrew，老版本要用另外的办法（文中有介绍）</p>
 <h2 id="检查home-brew的版本"><a href="#检查home-brew的版本" class="headerlink" title="检查home brew的版本"></a>检查home brew的版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew -v</span><br><span class="line">Homebrew 1.1.6</span><br></pre></td></tr></table></figure>
 <p>如果版本低于上述版本，请参阅：<span class="exturl" data-url="aHR0cHM6Ly95cS5hbGl5dW4uY29tL2FydGljbGVzLzUwNTU/ZG89bG9naW4=">这篇文章<i class="fa fa-external-link-alt"></i></span><br>但是，步骤参照上文，仍然是没法成功clone的，因为国内源的地址已经改了，所以对应的源地址要更改为：<br>清华大学镜像源：<br><span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnR1bmEudHNpbmdodWEuZWR1LmNuL2dpdC9ob21lYnJldy9ob21lYnJldy1jb3JlLmdpdA==">https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git<i class="fa fa-external-link-alt"></i></span><br>科大镜像源：<br><span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnVzdGMuZWR1LmNuL2hvbWVicmV3LWNvcmUuZ2l0">https://mirrors.ustc.edu.cn/homebrew-core.git<i class="fa fa-external-link-alt"></i></span></p>
 <p>如果版本是1.1.6及以上，请按照以下办法更新源：</p>
@@ -961,7 +974,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>299</span>
+              <span>300</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -981,7 +994,7 @@
 
       
           <p>收录一些实用的网址备查，记录常用命令。</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>MongoDB：<br>启动mongodb： mongod –config /usr/local/etc/mongod.conf</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>MongoDB：<br>启动mongodb： mongod --config /usr/local/etc/mongod.conf</p>
 <h2 id="电子书"><a href="#电子书" class="headerlink" title="电子书"></a>电子书</h2><p>RxJs中文书：<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2l0Ym9vay5jb20vYm9vay9idWN0d2J6cy9yeGpzL2RldGFpbHM=">https://www.gitbook.com/book/buctwbzs/rxjs/details<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="实用网址"><a href="#实用网址" class="headerlink" title="实用网址"></a>实用网址</h2><p>图标：<br><span class="exturl" data-url="aHR0cDovL2ZvbnRhd2Vzb21lLmlvLw==">http://fontawesome.io/<i class="fa fa-external-link-alt"></i></span></p>
 <p>维基百科-端口列表：</p>
@@ -1050,7 +1063,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Samuel</span>
+  <span class="author" itemprop="copyrightHolder">uDock</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
@@ -1060,7 +1073,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:06</span>
+    <span title="站点阅读时长">1:07</span>
 </div>
 
         

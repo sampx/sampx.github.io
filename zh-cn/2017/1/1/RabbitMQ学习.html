@@ -160,6 +160,16 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
 
   </li>
+        
+            
+  <li class="menu-item menu-item-docs">
+
+    <a href="/docs/" rel="section"><i class="fa fa-book fa-fw"></i>Docs</a>
+
+  </li>
+
+
+      
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -234,6 +244,9 @@
       <span class="links-of-author-item">
         <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vc2FtcHg=" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx"><i class="fab fa-weibo fa-fw"></i></span>
       </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
   </div>
 
 
@@ -338,13 +351,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>1.9k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
             <div class="post-description">RabbitMQ学习笔记</div>
 
@@ -359,9 +372,9 @@
       
         <p>仅供学习记录备查使用。<br><span class="exturl" data-url="aHR0cDovL3JhYmJpdG1xLm1yLXBpbmcuY29tLw==">原始网站<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h2><ul>
-<li>生产(Producing)意思就是发送。发送消息的程序就是一个生产者(producer)。我们一般用 “P” 来表示</li>
+<li>生产(Producing)意思就是发送。发送消息的程序就是一个生产者(producer)。我们一般用 &quot;P&quot; 来表示</li>
 <li>队列(queue)就是邮箱的名称。消息通过你的应用程序和 RabbitMQ 进行传输，它们能够只存储在一个队列（queue）中。 队列（queue）没有任何限制，你要存储多少消息都可以——基本上是一个无限的缓冲。多个生产者（producers）能够把消息发送给同一个队列，同样，多个消费者（consumers）也能够从同一个队列（queue）中获取数据。队列可以绘制成这样（图上是队列的名称）</li>
-<li>消费（Consuming）和获取消息是一样的意思。一个消费者（consumer）就是一个等待获取消息的程序。我们把它绘制为 “C”</li>
+<li>消费（Consuming）和获取消息是一样的意思。一个消费者（consumer）就是一个等待获取消息的程序。我们把它绘制为 &quot;C&quot;</li>
 <li>工作队列（又称：任务队列——Task Queues）是为了避免等待一些占用大量资源、时间的操作。当我们把任务（Task）当作消息发送到队列中，一个运行在后台的工作者（worker）进程就会取出任务然后处理。当你运行多个工作者（workers），任务就会在它们之间共享。</li>
 </ul>
 <h2 id="机制"><a href="#机制" class="headerlink" title="机制"></a>机制</h2><p>RabbitMQ 使用的是 AMQP 协议</p>
@@ -373,7 +386,7 @@
 <p>直连交换机（direct exchange），可以通过路由选择具体的消费者，但没办法基于多个标准执行路由操作</p>
 <p>主题交换机（topic exchange）一个携带着特定路由键的消息会被主题交换机投递给绑定键与之想匹配的队列</p>
 <blockquote>
-<p> 路由键必须是一个由.分隔开的词语列表。这些单词随便是什么都可以，但是最好是跟携带它们的消息有关系的词汇。以下是几个推荐的例子：”stock.usd.nyse”, “nyse.vmw”, “quick.orange.rabbit”。词语的个数可以随意，但是不要超过255字节。绑定键也必须拥有同样的格式。</p>
+<p> 路由键必须是一个由.分隔开的词语列表。这些单词随便是什么都可以，但是最好是跟携带它们的消息有关系的词汇。以下是几个推荐的例子：&quot;stock.usd.nyse&quot;, &quot;nyse.vmw&quot;, &quot;quick.orange.rabbit&quot;。词语的个数可以随意，但是不要超过255字节。绑定键也必须拥有同样的格式。</p>
 </blockquote>
 <p>绑定键和路由键有两个特殊应用方式：</p>
 <ul>
@@ -383,7 +396,7 @@
 <p><img data-src="http://www.rabbitmq.com/img/tutorials/python-five.png" alt="image"></p>
 <p>主题交换机是很强大的，它可以表现出跟其他交换机类似的行为</p>
 <ul>
-<li>当一个队列的绑定键为 “#”（井号） 的时候，这个队列将会无视消息的路由键，接收所有的消息。</li>
+<li>当一个队列的绑定键为 &quot;#&quot;（井号） 的时候，这个队列将会无视消息的路由键，接收所有的消息。</li>
 <li>当 * (星号) 和 # (井号) 这两个特殊字符都未在绑定键中出现的时候，此时主题交换机就拥有的直连交换机的行为。</li>
 </ul>
 <p>todo：头交换机</p>
@@ -474,7 +487,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Samuel</span>
+  <span class="author" itemprop="copyrightHolder">uDock</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
@@ -484,7 +497,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:06</span>
+    <span title="站点阅读时长">1:07</span>
 </div>
 
         
