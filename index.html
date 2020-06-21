@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#c62d2d">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#c62d2d">
+  <link rel="manifest" href="/images/site.webmanifest">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.udock.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#37c6c0","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="茧中的爬虫">
+<meta property="og:type" content="website">
+<meta property="og:title" content="uDock">
+<meta property="og:url" content="http://blog.udock.cn/index.html">
+<meta property="og:site_name" content="uDock">
+<meta property="og:description" content="茧中的爬虫">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Samuel">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.udock.cn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>uDock</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e347bffca624805bca03e592c7a8e681";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before, .use-motion .logo-line-after {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line-before"></i>
+      <h1 class="site-title">uDock</h1>
+      <i class="logo-line-after"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">吾道口</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          博主
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Samuel"
+      src="/images/sam.jpg">
+  <p class="site-author-name" itemprop="name">Samuel</p>
+  <div class="site-description" itemprop="description">茧中的爬虫</div>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sampx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sampx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/sampx" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wopal.net/" title="https:&#x2F;&#x2F;wopal.net" rel="noopener" target="_blank">创客少年</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content index posts-expand">
+          
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://blog.udock.cn/zh-cn/2020/6/6/yuque/linux%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/sam.jpg">
+      <meta itemprop="name" content="Samuel">
+      <meta itemprop="description" content="茧中的爬虫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uDock">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/zh-cn/2020/6/6/yuque/linux%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html" class="post-title-link" itemprop="url">Linux系统概述</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-21 15:27:26" itemprop="dateCreated datePublished" datetime="2020-06-21T15:27:26+08:00">2020-06-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/zh-cn/2020/6/6/yuque/linux%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://blog.udock.cn/zh-cn/2020/6/6/yuque/linux%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0.html" class="cy_cmt_count" data-xid="zh-cn/2020/6/6/yuque/linux系统概述.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>4 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="linux-架构层次"><a href="#linux-架构层次" class="headerlink" title="linux 架构层次"></a>linux 架构层次</h2><p><img data-src="https://raw.githubusercontent.com/sampx/resources/master/images/linux_note/99E0F8A8231CEA62B59C55D866A81DE4.jpg#align=left&display=inline&height=835&margin=%5Bobject%20Object%5D&originHeight=835&originWidth=1024&status=done&style=none&width=1024" alt=""></p>
+<ul>
+<li>用户模式：</li>
+</ul>
+<p>用户程序在用户模式下运行，访问内存和 cpu 有一定限制，用户程序崩溃，不会导致整个系统崩溃，但用户程序也有可能带来严重影响，比如清除硬盘数据，当然这取决于权限的控制。</p>
+<ul>
+<li>内核模式</li>
+</ul>
+<p>内核中的程序运行在内核模式下，内核模式下代码可以不受限制的访问 cpu 和内存，这种模式非常强大但也非常危险，程序出错可以轻易的使整个系统崩溃。</p>
+<ul>
+<li>主内存（也称作内核空间）</li>
+</ul>
+<p>内核和进程在主内存中运行，cpu 像一个操作员一样处理内存中的数据，读取指令和数据，然后计算后将结果写回内存。内核将主内存划分为很多区块，并且维护这些区块的状态，每一个进程拥有自己的内存区块，内核必须确保进程只使用它自己的内存区块。</p>
+<ul>
+<li>用户空间</li>
+</ul>
+<p>用户空间是指所有用户进程占用的所有内存空间，一个进程简单说就是内存中的一个状态。</p>
+<h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><p>一个用户代表一个实体，它有权限运行用户进程，对文件拥有所有权。<br>内核是通过用户 ID 来管理用户的，用户 ID 是一串数字标识。<br>用户机制主要用于权限管理。每一个用户进程都有一个用户作为所有者，我们称其为以该用户运行的进程。<br>root 用户虽然权限很高，但是还是在用户模式而非内核模式中运行。</p>
+<h2 id="内核"><a href="#内核" class="headerlink" title="内核"></a>内核</h2><p>内核负责管理进程、内存、设备驱动程序和系统调用。</p>
+<p><img data-src="https://raw.githubusercontent.com/sampx/resources/master/images/linux_note/53425978C75AF929C50ABBD3141ADEB9.jpg#align=left&display=inline&height=643&margin=%5Bobject%20Object%5D&originHeight=768&originWidth=1024&status=done&style=none&width=857" alt=""></p>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><ul>
+<li>CPU 为每个进程计时，到时即停止进程，并切换至内核模式，由内核接管 CPU 控制权。</li>
+<li>内核记录下当前 CPU 和内存的状态信息，这些信息在恢复被停止的进程时需要用到。</li>
+<li>内核执行上一个时间段内的任务（如从输入输出设备获得数据，磁盘读写操作等）。</li>
+<li>内核准备执行下一个进程，从准备就绪的进程中选择一个执行。</li>
+<li>内核为新进程准备 CPU 和内存。</li>
+<li>内核将新进程执行的时间段通知 CPU。</li>
+<li>内核将 CPU 切换至用户模式，将 CPU 控制权移交给新进程。</li>
+</ul>
+<blockquote>
+<p>注解：内核是在上下文切换时的时间段间隙中运行，在多 CPU 系统中，如果新进程将在另一个 CPU 上运行，内核就不需要让出当前 CPU 的使用权。不过为了将所有 CPU 的使用效率最大化，内核会使用一些其他的方式来获取 CPU 控制权</p>
+</blockquote>
+<h2 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h2><ul>
+<li>内核在上下文切换过程中管理内存；</li>
+<li>内核需要自己的专有内存空间，其他的用户进程无法访问；</li>
+<li>每个用户进程有自己的专有内存空间；</li>
+<li>一个进程不能访问另一个进程的专有内存空间；</li>
+<li>用户进程之间可以共享内存；</li>
+<li>用户进程的某些内存空间可以是只读的；</li>
+<li>通过使用磁盘交换，系统可以使用比实际内存容量更多的内存空间。</li>
+</ul>
+<blockquote>
+<p>注解：内存地址映射通过内存页面表（page table）来实现。<br>新型的 CPU 提供了 MMU（Memory Management Unit，内存管理单元），MMU 使用了一种叫作虚拟内存的内存访问机制。</p>
+</blockquote>
+<h2 id="设备驱动程序和设备管理"><a href="#设备驱动程序和设备管理" class="headerlink" title="设备驱动程序和设备管理"></a>设备驱动程序和设备管理</h2><ul>
+<li>通常设备只能在内核模式中被访问，例如用户进程请求内核关闭系统电源</li>
+<li>不同设备之间没有一个统一的编程接口，比如两个不同的网卡。</li>
+<li>所以设备驱动程序传统意义上来说是内核的一部分，它们尽可能为用户进程提供统一的接口。</li>
+</ul>
+<h2 id="系统调用和系统支持"><a href="#系统调用和系统支持" class="headerlink" title="系统调用和系统支持"></a>系统调用和系统支持</h2><ul>
+<li>打开、读取和写文件这些操作都涉及系统调用</li>
+<li>两个非常重要的系统调用：fork()和 exec()</li>
+<li>除了 init 以外，Linux 中的所有用户进程都是通过 fork()来启动的。</li>
+</ul>
+<blockquote>
+<p>fork()：当进程调用 fork()时，内核创建一个和该进程几乎一模一样的副本。<br>exec()：当进程调用 exec(program)时，内核启动 program 来替换当前的进程。</p>
+</blockquote>
+<ul>
+<li>新进程的启动流程</li>
+</ul>
+<p><img data-src="https://raw.githubusercontent.com/sampx/resources/master/images/linux_note/BA65AA0FC77C9F12126EE68676DE59CC.jpg#align=left&display=inline&height=370&margin=%5Bobject%20Object%5D&originHeight=370&originWidth=526&status=done&style=none&width=526" alt=""></p>
+<p>当你在终端窗口中输入 ls 时，终端窗口中的 shell 调用 fork()创建一个 shell 的副本，然后该副本调用 exec(ls)来运行 ls。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://blog.udock.cn/zh-cn/2017/4/4/Linux%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/sam.jpg">
+      <meta itemprop="name" content="Samuel">
+      <meta itemprop="description" content="茧中的爬虫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uDock">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/zh-cn/2017/4/4/Linux%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html" class="post-title-link" itemprop="url">Linux正则表达式</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-04-09 17:29:23" itemprop="dateCreated datePublished" datetime="2017-04-09T17:29:23+08:00">2017-04-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>6 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、基础正则表达式"><a href="#一、基础正则表达式" class="headerlink" title="一、基础正则表达式"></a>一、基础正则表达式</h1><h2 id="1、-点符号"><a href="#1、-点符号" class="headerlink" title="1、. 点符号"></a>1、<code>.</code> 点符号</h2><p>匹配除换行符之外的的任意一个字符<br>例如：r.t 匹配 rot ， rut等<br>r..t 匹配 root, ruut, rt(中间两个空格)</p>
+<h2 id="2、-星符号"><a href="#2、-星符号" class="headerlink" title="2、* 星符号"></a>2、<code>*</code> 星符号</h2><p>匹配前一个字符0次或任意多次<br>例如：ab* 匹配 a，ab，abb等<br>      <code>.*</code> 代表任意长度的不包含换换的字符<br>注意：<strong><em><code>g*d</code> g可能匹配0项</em></strong>      </p>
+<h2 id="3、-n-m-符号"><a href="#3、-n-m-符号" class="headerlink" title="3、\{n,m\} 符号"></a>3、<code>\{n,m\}</code> 符号</h2><p>精确匹配前一个字符的重复次数<br><code>\{n\}</code> 匹配前面的字符n次<br><code>\{n,\}</code> 匹配前面的字符n次以上,含n次<br><code>\{n,m\}</code> 匹配前面的字符n到m次<br>注意：<strong><em>egrep下，不能输入“\”符号</em></strong></p>
+<h2 id="4、-符号"><a href="#4、-符号" class="headerlink" title="4、^ 符号"></a>4、<code>^</code> 符号</h2><p>匹配开头字符<br>例如：<code>^root</code> 匹配以root开头的行</p>
+<h2 id="5、-符号"><a href="#5、-符号" class="headerlink" title="5、$ 符号"></a>5、<code>$</code> 符号</h2><p>匹配行尾</p>
+<h2 id="6、-符号"><a href="#6、-符号" class="headerlink" title="6、[] 符号"></a>6、<code>[]</code> 符号</h2><p>匹配方括号内出现的任一字符，如果范围比较大，可以使用‘-’号进行范围限定，如[A-Z]匹配任意大写字符,[A-Za-z0-9]匹配任意字符和数字。<br>‘[]’内出现’^’符号代表取反,代表不是</p>
+<h2 id="7、-符号"><a href="#7、-符号" class="headerlink" title="7、\ 符号"></a>7、<code>\</code> 符号</h2><p>转义字符<br>例如：<code>\.*</code> 代表匹配任意长度的’.’,而不是任意字符</p>
+<h2 id="8、-lt-和-gt-符号"><a href="#8、-lt-和-gt-符号" class="headerlink" title="8、\&lt; 和 \&gt; 符号"></a>8、<code>\&lt;</code> 和 <code>\&gt;</code> 符号</h2><p>分别界定单词的左边和右边<br>例如:<code>\&lt;hello\&gt;</code>精确匹配hello,而不是helloworld</p>
+<h2 id="9、-d-符号"><a href="#9、-d-符号" class="headerlink" title="9、\d 符号"></a>9、<code>\d</code> 符号</h2><p>匹配一个数字,等价于<code>[0-9]</code><br>注意:<code>\d</code>有时有兼容性问题,如:<code>echo 123 | grep &#39;\d&#39;</code><br>匹配不成功是因为<code>\d</code>是一种Perl兼容模式的表达式,这种情况下要加上<code>-P</code>参数:<code>echo 123 | grep -P &#39;\d&#39;</code></p>
+<h2 id="10、-b-符号"><a href="#10、-b-符号" class="headerlink" title="10、\b 符号"></a>10、<code>\b</code> 符号</h2><p>匹配单词边界，等价于<code>\&lt;\&gt;</code></p>
+<h2 id="11、-B-符号"><a href="#11、-B-符号" class="headerlink" title="11、\B 符号"></a>11、<code>\B</code> 符号</h2><p>匹配非单词的边界<br>例如:<code>hello\B</code> 匹配 helloworld,即hello后必须有字符</p>
+<h2 id="12、-w-符号"><a href="#12、-w-符号" class="headerlink" title="12、\w 符号"></a>12、<code>\w</code> 符号</h2><p>匹配字母,数字和下划线,等价于<code>[A-Za-z0-9]</code><br>注意：比后者多匹配下划线</p>
+<h2 id="13、-W-符号"><a href="#13、-W-符号" class="headerlink" title="13、\W 符号"></a>13、<code>\W</code> 符号</h2><p>匹配非字母,数字和下划线<br>如：<code>@$%*^~\&amp;#{}[]()&lt;&gt;+-/</code>等</p>
+<h2 id="14、-n-符号"><a href="#14、-n-符号" class="headerlink" title="14、\n 符号"></a>14、<code>\n</code> 符号</h2><p>匹配一个换换符</p>
+<h2 id="15、-r-符号"><a href="#15、-r-符号" class="headerlink" title="15、\r 符号"></a>15、<code>\r</code> 符号</h2><p>匹配一个回车符</p>
+<h2 id="16、-t-符号"><a href="#16、-t-符号" class="headerlink" title="16、\t 符号"></a>16、<code>\t</code> 符号</h2><p>匹配一个制表符</p>
+<h2 id="17、-f-符号"><a href="#17、-f-符号" class="headerlink" title="17、\f 符号"></a>17、<code>\f</code> 符号</h2><p>匹配一个换页符</p>
+<h2 id="18、-s-符号"><a href="#18、-s-符号" class="headerlink" title="18、\s 符号"></a>18、<code>\s</code> 符号</h2><p>匹配任何空白字符</p>
+<h2 id="19、-S-符号"><a href="#19、-S-符号" class="headerlink" title="19、\S 符号"></a>19、<code>\S</code> 符号</h2><p>匹配任何非空白字符<br>例如：<code>^\b\S+\b\s+\b\S+\b\s*$</code> 精确匹配两个单词（egrep）</p>
+<h1 id="二、扩展的正则表达式"><a href="#二、扩展的正则表达式" class="headerlink" title="二、扩展的正则表达式"></a>二、扩展的正则表达式</h1><p>以下这些必须要用egrep执行</p>
+<h2 id="1、-符号"><a href="#1、-符号" class="headerlink" title="1、? 符号"></a>1、<code>?</code> 符号</h2><p>匹配前一个字符0次或1次</p>
+<h2 id="2、-符号"><a href="#2、-符号" class="headerlink" title="2、+ 符号"></a>2、<code>+</code> 符号</h2><p>匹配前一个字符1次以上</p>
+<h2 id="3、-符号"><a href="#3、-符号" class="headerlink" title="3、| 符号"></a>3、<code>|</code> 符号</h2><p>“或”的意思，多种可能的罗列，彼此间是分支关系<br>例如：匹配不同的固定电话区号：<br><code>^0[0-9]\{2,3\}-[0-9]\{8\}</code><br>也可以这样写:<code>^0[0-9]\{2\}-[0-9]\{8\}|^0[0-9]\{3\}-[0-9]\{8\}</code><br>    021-38749087<br>    0556-34538979<br>    010 66508749<br>    01066508749</p>
+<h2 id="4、-符号-1"><a href="#4、-符号-1" class="headerlink" title="4、() 符号"></a>4、<code>()</code> 符号</h2><p>通常与<code>|</code>联合使用，用于枚举一系列可替换的字符。<br>例如：电话区号可用“-”或“ ”空格来表示：<br><code>^0[0-9]{2,3}(-| |.*)[0-9]{8}</code></p>
+<h1 id="三、通配符"><a href="#三、通配符" class="headerlink" title="三、通配符"></a>三、通配符</h1><p>通配符和正则表达式之间存在的一些差异，有些相同的字符既用在正则表达式中又用在通配符中，极易造成混淆和干扰，其中的区别要靠多记忆和练习去加深理解，简单的说，正则表达式主要用在对文件内容的匹配上，通配符主要用在对文件名的匹配上。</p>
+<h2 id="1、-符号-1"><a href="#1、-符号-1" class="headerlink" title="1、* 符号"></a>1、<code>*</code> 符号</h2><p>代表0或多个字符<br>例如：<code>ls -l *.doc</code><br>匹配扩展名为doc的任意文件</p>
+<h2 id="2、-符号-1"><a href="#2、-符号-1" class="headerlink" title="2、? 符号"></a>2、<code>?</code> 符号</h2><p>代表任意一个字符<br>例如:<code>ls -l A?.doc</code> 匹配扩展名为doc,名称为A开头,后代一个字符的任意文件</p>
+<h2 id="3、-和-符号"><a href="#3、-和-符号" class="headerlink" title="3、{} 和 [] 符号"></a>3、<code>{}</code> 和 <code>[]</code> 符号</h2><p>匹配所有括号内包含的以逗号隔开的字符<br>例如:<code>ls -l {a,b,c}.doc</code><br>匹配名字是字母a,b,c,扩展名为doc的文件<br>再如:<code>ls -l [a-c].doc</code> 与上例意义相同<br>综合例子：<code>ls -l {a*,b*,c*}.{tmp,txt}</code></p>
+<h2 id="4、-符号和-符号"><a href="#4、-符号和-符号" class="headerlink" title="4、^符号和!符号"></a>4、<code>^</code>符号和<code>!</code>符号</h2><p>这两个符号往往和<code>[]</code>一起使用,当出现在<code>[]</code>中时,代表取反<br>例如:<code>[^A]</code>或<code>[!A]</code>代表不是A</p>
+<h1 id="四、grep支持的POSIX字符"><a href="#四、grep支持的POSIX字符" class="headerlink" title="四、grep支持的POSIX字符"></a>四、grep支持的POSIX字符</h1><ul>
+<li><code>[:alnum:]</code> 文字数字字符</li>
+<li><code>[:alpha:]</code> 文字字符</li>
+<li><code>[:digit:]</code> 数字字符</li>
+<li><code>[:graph:]</code> 非空字符(非空格,控制字符)</li>
+<li><code>[:lower:]</code> 小写字母</li>
+<li><code>[:upper:]</code> 大写字母</li>
+<li><code>[:cntrl:]</code> 控制字符</li>
+<li><code>[:print:]</code> 非空字符(包含空格)</li>
+<li><code>[:punct:]</code> 标点符号</li>
+<li><code>[:space:]</code> 所有空白字符(新行,空格,制表符)</li>
+<li><code>[:xdigit:]</code> 十六进制数字(0-9,a-f)</li>
+</ul>
+<p>例子：<code>grep ^[[:upper:]] greptest.txt</code><br>    The cat’s name is Tom, what’s the mouse’s name?<br>    The mouse’s NAME is Jerry<br>    They are good friends.<br>    Upper case<br><code>grep ^[[:xdigit:]] greptest.txt</code><br>    100% means pure<br>    021-38749087<br>    0556-34538979<br>    010 66508749<br>    01066508749</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://blog.udock.cn/zh-cn/2017/1/1/%E6%9B%BF%E6%8D%A2Homebrew%E5%9B%BD%E5%86%85%E6%BA%90.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/sam.jpg">
+      <meta itemprop="name" content="Samuel">
+      <meta itemprop="description" content="茧中的爬虫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uDock">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/zh-cn/2017/1/1/%E6%9B%BF%E6%8D%A2Homebrew%E5%9B%BD%E5%86%85%E6%BA%90.html" class="post-title-link" itemprop="url">替换Homebrew国内源</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-05 20:45:31" itemprop="dateCreated datePublished" datetime="2017-01-05T20:45:31+08:00">2017-01-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%9E%E7%94%A8%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">实用技巧</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/zh-cn/2017/1/1/%E6%9B%BF%E6%8D%A2Homebrew%E5%9B%BD%E5%86%85%E6%BA%90.html#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://blog.udock.cn/zh-cn/2017/1/1/%E6%9B%BF%E6%8D%A2Homebrew%E5%9B%BD%E5%86%85%E6%BA%90.html" class="cy_cmt_count" data-xid="zh-cn/2017/1/1/替换Homebrew国内源.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>622</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>2 分钟</span>
+            </span>
+            <div class="post-description">Homebrew是OS X上类似APT(apt-get)、Yum的一个软件包管理器。 所以，虽然你侥幸下载到了brew，但你肯定是无法更新brew的。替换Homebrew国内镜像源，加速Homebrew更新。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Homebrew是OS X上类似APT(apt-get)、Yum的一个软件包管理器。 所以，虽然你侥幸下载到了brew，但你肯定是无法更新brew的。原因你懂。不过虽然不能更新brew，但这只是指brew这个管理器本身罢了，软件还是可以安装的。但由于无法使用brew update也就无法更新…<br>** 注意：本方法适合1.1.6版的Homebrew，老版本要用另外的办法（文中有介绍）</p>
+<h2 id="检查home-brew的版本"><a href="#检查home-brew的版本" class="headerlink" title="检查home brew的版本"></a>检查home brew的版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew -v</span><br><span class="line">Homebrew 1.1.6</span><br></pre></td></tr></table></figure>
+<p>如果版本低于上述版本，请参阅：<a href="https://yq.aliyun.com/articles/5055?do=login" target="_blank" rel="noopener">这篇文章</a><br>但是，步骤参照上文，仍然是没法成功clone的，因为国内源的地址已经改了，所以对应的源地址要更改为：<br>清华大学镜像源：<br><a href="https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git</a><br>科大镜像源：<br><a href="https://mirrors.ustc.edu.cn/homebrew-core.git" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/homebrew-core.git</a></p>
+<p>如果版本是1.1.6及以上，请按照以下办法更新源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;local&#x2F;Homebrew</span><br><span class="line">&#x2F;&#x2F;以下换成清华的源也可以</span><br><span class="line">git remote set-url origin https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;homebrew-core.git</span><br><span class="line">brew update &#x2F;&#x2F;等待成功喜讯 ：）</span><br></pre></td></tr></table></figure>
+
+<p><strong>enjoy！</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://blog.udock.cn/zh-cn/2017/1/1/NodeJs-REPL%E5%8F%82%E8%80%83.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/sam.jpg">
+      <meta itemprop="name" content="Samuel">
+      <meta itemprop="description" content="茧中的爬虫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uDock">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/zh-cn/2017/1/1/NodeJs-REPL%E5%8F%82%E8%80%83.html" class="post-title-link" itemprop="url">NodeJs-REPL参考</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-04 20:43:45" itemprop="dateCreated datePublished" datetime="2017-01-04T20:43:45+08:00">2017-01-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8F%82%E8%80%83/" itemprop="url" rel="index"><span itemprop="name">技术参考</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/zh-cn/2017/1/1/NodeJs-REPL%E5%8F%82%E8%80%83.html#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://blog.udock.cn/zh-cn/2017/1/1/NodeJs-REPL%E5%8F%82%E8%80%83.html" class="cy_cmt_count" data-xid="zh-cn/2017/1/1/NodeJs-REPL参考.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>REPL表示读取评估和演示打印循环(Read Eval Print Loop)，它代表一个命令输入和系统在交互模式的输出响应窗口控制台或Unix/ Linux的shell计算机环境。 Node.js附带了一个REPL环境。它执行以下期望的任务。<br>Node REPL结合Node.js的代码试验非常有用，用于调试JavaScript代码。</p>
+<ul>
+<li>Read - 读取用户的输入，解析在内存中输入JavaScript数据结构和存储。</li>
+<li>Eval - 接受和评估计算数据结构</li>
+<li>Print - 打印结果</li>
+<li>Loop - 循环上面的命令，直到用户按Ctrl-C两次。</li>
+</ul>
+<h2 id="启动REPL"><a href="#启动REPL" class="headerlink" title="启动REPL"></a>启动REPL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Usage: node [options] [ -e script | script.js ] [arguments] 2 node debug script.js [arguments]</span><br><span class="line"> Options:</span><br><span class="line">  -v, --version</span><br><span class="line">  -e, --eval script     直接执行javascript代码</span><br><span class="line">  -p, --print           打印 --eval 的结果</span><br><span class="line">  --v8-options          打印V8命令选项</span><br><span class="line">  --max-stack-size&#x3D;val  设置V8栈大小(bytes)</span><br></pre></td></tr></table></figure>
+
+<h2 id="多行表达式"><a href="#多行表达式" class="headerlink" title="多行表达式"></a>多行表达式</h2><p>Node REPL支持类似于JavaScript的多行表达。让我们来看看以下do-while循环的操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ node</span><br><span class="line">&gt; var x &#x3D; 0</span><br><span class="line">undefined</span><br><span class="line">&gt; do &#123;</span><br><span class="line">... x++;</span><br><span class="line">... console.log(&quot;x: &quot; + x);</span><br><span class="line">... &#125; while ( x &lt; 5 );</span><br><span class="line">x: 1</span><br><span class="line">x: 2</span><br><span class="line">x: 3</span><br><span class="line">x: 4</span><br><span class="line">x: 5</span><br><span class="line">undefined</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="下划线变量"><a href="#下划线变量" class="headerlink" title="下划线变量"></a>下划线变量</h2><p>您可以使用下划线_得到最后的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ node</span><br><span class="line">&gt; var x &#x3D; 10</span><br><span class="line">undefined</span><br><span class="line">&gt; var y &#x3D; 20</span><br><span class="line">undefined</span><br><span class="line">&gt; x + y</span><br><span class="line">30</span><br><span class="line">&gt; var sum &#x3D; _</span><br><span class="line">undefined</span><br><span class="line">&gt; console.log(sum)</span><br><span class="line">30</span><br><span class="line">undefined</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="REPL命令"><a href="#REPL命令" class="headerlink" title="REPL命令"></a>REPL命令</h2><ul>
+<li>ctrl + c - 终止当前命令</li>
+<li>ctrl + c twice - 终止Node REPL</li>
+<li>ctrl + d - 终止Node REPL</li>
+<li>Up/Down Keys - 查看命令历史记录和修改以前的命令</li>
+<li>tab Keys - 当前指令的列表</li>
+<li>.help - 所有命令的列表</li>
+<li>.break - 退出多行表达式</li>
+<li>.clear - 退出多行表达式</li>
+<li>.exit - 退出repl</li>
+<li>.save filename - 当前Node REPL会话保存到文件中</li>
+<li>.load filename - 加载文件的内容在当前Node REPL会话</li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>一门语言在运行的时候，需要一个环境，叫做宿主环境。对于JavaScript，宿主环境最常见的是web浏览器，这时的this通常指代的时window。而在node的REPL中，this指代的是global。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://blog.udock.cn/zh-cn/2017/1/1/NodeJs%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/sam.jpg">
+      <meta itemprop="name" content="Samuel">
+      <meta itemprop="description" content="茧中的爬虫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uDock">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/zh-cn/2017/1/1/NodeJs%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.html" class="post-title-link" itemprop="url">NodeJs模块加载机制</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-04 20:43:45" itemprop="dateCreated datePublished" datetime="2017-01-04T20:43:45+08:00">2017-01-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8F%82%E8%80%83/" itemprop="url" rel="index"><span itemprop="name">技术参考</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/zh-cn/2017/1/1/NodeJs%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.html#SOHUCS" itemprop="discussionUrl">
+        <span id="url::http://blog.udock.cn/zh-cn/2017/1/1/NodeJs%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.html" class="cy_cmt_count" data-xid="zh-cn/2017/1/1/NodeJs模块加载机制.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Node.js的模块分为两类，一类为原生（核心）模块，一类为文件模块。<br>原生模块在Node.js源代码编译的时候编译进了二进制执行文件，被定义在lib这个目录下面，加载的速度最快。<br>文件模块是动态加载的，加载速度比原生模块慢。但是Node.js对原生模块和文件模块都进行了缓存，于是在第二次require时，是不会有重复开销的。</p>
+<h2 id="文件模块加载"><a href="#文件模块加载" class="headerlink" title="文件模块加载"></a>文件模块加载</h2><p>由于通过命令行加载启动的文件几乎都为文件模块。我们从Node.js如何加载文件模块开始谈起。<br>文件模块的加载，主要由原生模块module来实现和完成，该模块在启动时已经被加载。</p>
+<p>文件模块中，又分为3类模块。这三类文件模块以后缀来区分，Node.js会根据后缀名来决定加载方法。</p>
+<ul>
+<li>.js。通过fs模块同步读取js文件并编译执行。</li>
+<li>.node。通过C/C++进行编写的Addon。通过dlopen方法进行加载。</li>
+<li>.json。读取文件，调用JSON.parse解析加载。</li>
+</ul>
+<p>在此，重点讲js模块加载过程：</p>
+<ul>
+<li><p>模块包装<br>对js文件内容进行头尾包装。以app.js为例，包装之后的app.js将会变成以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(function (exports, require, module, __filename, __dirname) &#123;</span><br><span class="line">    var circle &#x3D; require(&#39;.&#x2F;circle.js&#39;);</span><br><span class="line">    console.log(&#39;The area of a circle of radius 4 is &#39; + circle.area(4));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这段代码执行后，返回为一个具体的function对象。最后传入module对象的exports，require方法，module，文件名，目录名作为实参并执行。这就是为什么require并没有定义在app.js 文件中，但是这个方法却存在的原因。</p>
+</li>
+<li><p>module对象</p>
+<ul>
+<li>module.children：一个数组，指定了当前模块引用的其他模块。</li>
+<li>module.exports ：此对象由Module系统创建，有时不可访问; 如果希望模块成为一个类的实例，只需将所需的导出对象分配给module.exports。</li>
+<li>exports：最初指向module.exports，如果你给它赋值，它将会指向新对象，而不是最初的module.exports。 注意，如果将所需的对象分配给exports，将简单地重新绑定exports变量，这可能不是你想要做的。<br>类似于：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function require(...) &#123;</span><br><span class="line">&#x2F;&#x2F; ...</span><br><span class="line">((module, exports) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; Your module code here</span><br><span class="line">  exports &#x3D; some_func;        &#x2F;&#x2F; re-assigns exports, exports is no longer</span><br><span class="line">                              &#x2F;&#x2F; a shortcut, and nothing is exported.</span><br><span class="line">  module.exports &#x3D; some_func; &#x2F;&#x2F; makes your module export 0</span><br><span class="line">&#125;)(module, module.exports);</span><br><span class="line">return module;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>module.filename：模块的绝对路径名称</li>
+<li>module.id ：模块id通常等于module.filename</li>
+<li>module.loaded：用于判断模块是否加载完毕，或者正在加载中。</li>
+<li>module.parent ：指向首次加载本模块的模块。</li>
+<li>module.require(id)：返回一个module.exports导出的对象。</li>
+</ul>
+</li>
+</ul>
+<p>载入、编译、缓存了module后，返回module的exports对象。这就是circle.js文件中只有定义在exports对象上的方法才能被外部调用的原因。</p>
+<ul>
+<li>require方法中的文件查找策略</li>
+</ul>
+<p><img data-src="http://www.infoq.com/resource/articles/nodejs-module-mechanism/zh/resources/image1.jpg" alt="enter image description here"><br>尽管原生模块与文件模块的优先级不同，但是都不会优先于从文件模块的缓存中加载已经存在的模块。以http模块为例，尽管在目录下存在一个http/http.js/http.node/http.json文件，require(“http”)都不会从这些文件中加载，而是从原生模块中加载。</p>
+<p>文件查找流程：<br><img data-src="http://www.infoq.com/resource/articles/nodejs-module-mechanism/zh/resources/image2.jpg" alt="enter image description here"></p>
+<p>简而言之，如果require绝对路径的文件，查找时不会去遍历每一个node_modules目录，其速度最快。其余流程如下：</p>
+<ol>
+<li>从module path数组中取出第一个目录作为查找基准。</li>
+<li>直接从目录中查找该文件，如果存在，则结束查找。如果不存在，则进行下一条查找。</li>
+<li>尝试添加.js、.json、.node后缀后查找，如果存在文件，则结束查找。如果不存在，则进行下一条。</li>
+<li>尝试将require的参数作为一个包来进行查找，读取目录下的package.json文件，取得main参数指定的文件。</li>
+<li>尝试查找该文件，如果存在，则结束查找。如果不存在，则进行第3条查找。</li>
+<li>如果继续失败，则取出module path数组中的下一个目录作为基准查找，循环第1至5个步骤。</li>
+<li>如果继续失败，循环第1至6个步骤，直到module path中的最后一个值。</li>
+<li>如果仍然失败，则抛出异常。</li>
+</ol>
+<p>整个查找过程十分类似原型链的查找和作用域的查找。所幸Node.js对路径查找实现了缓存机制，否则由于每次判断路径都是同步阻塞式进行，会导致严重的性能消耗。</p>
+<h2 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h2><p>一个符合CommonJS规范的包应该是如下这种结构：</p>
+<ul>
+<li>一个package.json文件应该存在于包顶级目录下</li>
+<li>二进制文件应该包含在bin目录下。</li>
+<li>JavaScript代码应该包含在lib目录下。</li>
+<li>文档应该在doc目录下。</li>
+<li>单元测试应该在test目录下。</li>
+</ul>
+<p>由上文的require的查找过程可以知道，Node.js在没有找到目标文件时，会将当前目录当作一个包来尝试加载，所以在package.json文件中最重要的一个字段就是main。而实际上，这一处是Node.js的扩展，标准定义中并不包含此字段，对于require，只需要main属性即可。详细Package-json包说明参见：<br><a href="http://blog.udock.cn/2016/09/09/Nodejs-Package-json-%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E/#more">这篇blog</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://blog.udock.cn/zh-cn/2017/1/1/%E5%AE%9E%E7%94%A8%E7%BD%91%E5%9D%80.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/sam.jpg">
+      <meta itemprop="name" content="Samuel">
+      <meta itemprop="description" content="茧中的爬虫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uDock">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/zh-cn/2017/1/1/%E5%AE%9E%E7%94%A8%E7%BD%91%E5%9D%80.html" class="post-title-link" itemprop="url">实用网址</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-04 20:43:45" itemprop="dateCreated datePublished" datetime="2017-01-04T20:43:45+08:00">2017-01-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">记录</span></a>
+                </span>
+            </span>
+
+          
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>299</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+            <div class="post-description">收录一些实用的网址备查，记录常用命令。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>收录一些实用的网址备查，记录常用命令。</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>MongoDB：<br>启动mongodb： mongod –config /usr/local/etc/mongod.conf</p>
+<h2 id="电子书"><a href="#电子书" class="headerlink" title="电子书"></a>电子书</h2><p>RxJs中文书：<a href="https://www.gitbook.com/book/buctwbzs/rxjs/details" target="_blank" rel="noopener">https://www.gitbook.com/book/buctwbzs/rxjs/details</a></p>
+<h2 id="实用网址"><a href="#实用网址" class="headerlink" title="实用网址"></a>实用网址</h2><p>图标：<br><a href="http://fontawesome.io/" target="_blank" rel="noopener">http://fontawesome.io/</a></p>
+<p>维基百科-端口列表：</p>
+<p><a href="https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8#1024.E5.88.B049151.E8.99.9F.E7.AB.AF.E5.8F.A3" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8#1024.E5.88.B049151.E8.99.9F.E7.AB.AF.E5.8F.A3</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+        </div>
+        
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Samuel</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">24k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:06</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  <script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cysskePLl"></script>
+
+
+    </div>
+</body>
+</html>

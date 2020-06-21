@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#c62d2d">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#c62d2d">
+  <link rel="manifest" href="/images/site.webmanifest">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"blog.udock.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#37c6c0","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="Nodejs包定义文件，配置参数详细解读。 TODO：以后会区分出不同的Node版本支持的配置参数 Package.json文件描述了一个NPM包的所有相关信息，包括作者、简介、包依赖、构建等信息。格式必须是严格的JSON格式。 通常我们在创建一个NPM程序时，可以使用npm init命令，通过交互式的命令，自动生成一个package.json文件，里面包含了常用的一些字段信息，但远不止这么简单。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs Package.json 简要说明">
+<meta property="og:url" content="http://blog.udock.cn/zh-cn/2016/9/9/Nodejs-Package-json-%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html">
+<meta property="og:site_name" content="uDock">
+<meta property="og:description" content="Nodejs包定义文件，配置参数详细解读。 TODO：以后会区分出不同的Node版本支持的配置参数 Package.json文件描述了一个NPM包的所有相关信息，包括作者、简介、包依赖、构建等信息。格式必须是严格的JSON格式。 通常我们在创建一个NPM程序时，可以使用npm init命令，通过交互式的命令，自动生成一个package.json文件，里面包含了常用的一些字段信息，但远不止这么简单。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-09-09T15:30:38.000Z">
+<meta property="article:modified_time" content="2016-09-09T15:30:38.000Z">
+<meta property="article:author" content="Samuel">
+<meta property="article:tag" content="Nodejs">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://blog.udock.cn/zh-cn/2016/9/9/Nodejs-Package-json-%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-cn'
+  };
+</script>
+
+  <title>Nodejs Package.json 简要说明 | uDock</title>
+  
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e347bffca624805bca03e592c7a8e681";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before, .use-motion .logo-line-after {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <main class="main">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line-before"></i>
+      <h1 class="site-title">uDock</h1>
+      <i class="logo-line-after"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">吾道口</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          博主
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Samuel"
+      src="/images/sam.jpg">
+  <p class="site-author-name" itemprop="name">Samuel</p>
+  <div class="site-description" itemprop="description">茧中的爬虫</div>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sampx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sampx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/sampx" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://wopal.net/" title="https:&#x2F;&#x2F;wopal.net" rel="noopener" target="_blank">创客少年</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </header>
+
+      
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+      <div class="main-inner">
+        
+
+        <div class="content post posts-expand">
+          
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+    <link itemprop="mainEntityOfPage" href="http://blog.udock.cn/zh-cn/2016/9/9/Nodejs-Package-json-%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/sam.jpg">
+      <meta itemprop="name" content="Samuel">
+      <meta itemprop="description" content="茧中的爬虫">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uDock">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nodejs Package.json 简要说明
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-09 23:30:38" itemprop="dateCreated datePublished" datetime="2016-09-09T23:30:38+08:00">2016-09-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/zh-cn/2016/9/9/Nodejs-Package-json-%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="zh-cn/2016/9/9/Nodejs-Package-json-简要说明.html" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Nodejs包定义文件，配置参数详细解读。</p>
+<p><em>TODO：以后会区分出不同的Node版本支持的配置参数</em></p>
+<p>Package.json文件描述了一个NPM包的所有相关信息，包括作者、简介、包依赖、构建等信息。格式必须是严格的JSON格式。</p>
+<p>通常我们在创建一个NPM程序时，可以使用<code>npm init</code>命令，通过交互式的命令，自动生成一个package.json文件，里面包含了常用的一些字段信息，但远不止这么简单。通过完善package.json文件，我们可以让npm命令更好地为我们服务。下面简要介绍包定义文件中各部分的作用和含义：</p>
+<ul>
+<li>name &amp; version</li>
+</ul>
+<p>name和version是package.json中最重要的两个字段，也是发布到NPM平台上的唯一标识，如果没有正确设置这两个字段，包就不能发布和被下载。<br><strong>name字段：</strong>新版本的NPM可以指定scope, 名字可以加前缀标识，如<code>@ijse/mypackage</code><br><strong>version字段：</strong>取值需要符合node-semver的规则，<a href="https://github.com/isaacs/node-semver" target="_blank" rel="noopener">详见文档</a><br>下面是官方给出的一些建议:</p>
+<blockquote>
+<ul>
+<li>名字里不要再包含”js”和”node”，因为默认NPM包就是node.js程序，不过你可以通过engines字段来指定。</li>
+<li>名字将会被作为url的一部分，所有要符合http url的一般命名规则，不能包含url非法字符，也不能以.和_开头。</li>
+<li>名字也将作为require()命令的参数，所以应该尽量简明。</li>
+<li>如果包要发布到NPM平台上的话，最好先检查下有没有重名, 并且字母只能全部小写。</li>
+</ul>
+</blockquote>
+<ul>
+<li>description<br>包的描述信息，将会在<code>npm search</code>的返回结果中显示，以帮助用户选择合适的包。</li>
+<li>keywords<br>包的关键词信息，是一个字符串数组，同上也将显示在<code>npm search</code>的结果中。</li>
+<li>homepage：包的主页地址</li>
+<li>license：包的开源协议名称</li>
+<li>author：包的作者，可以是字符串或对象，如：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  author: &#123;  </span><br><span class="line">    "name": "ijse",</span><br><span class="line">    "email": "my@ijse.cn",</span><br><span class="line">    "url": "http://www.ijser.cn"</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line">  author: "ijse &lt;my@ijser.cn&gt; (http://www.ijser.cn)"</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>bugs：包的bug跟踪主页地址，应该如下设置：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bugs: &#123;  </span><br><span class="line">  "url": "http://github.com/ijse/project/issues",</span><br><span class="line">  "email": "my@ijser.cn"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>contributors &amp; maintainers：包的贡献者和维护人，是一个数组。</li>
+<li>files：包所包含的所有文件，可以取值为文件夹。通常我们还是用<code>.npmignore</code>来去除不想包含到包里的文件。</li>
+<li>main：包的入口文件，如index.js</li>
+<li>bin：如果你的包里包含可执行文件，通过设置这个字段可以将它们包含到系统的PATH中，这样直接就可以运行，很方便。当包被安装后，NPM将创建一个cli.js文件的链接到/usr/local/bin/iapp下。如：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"bin": &#123;</span><br><span class="line">  "iapp": "./cli.js"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>man：为系统的man命令提供帮助文档, 帮助文件的文件名必须以数字结尾，如果是压缩的，需要以.gz结尾。如：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"man": "./man/doc.1"</span><br><span class="line"><span class="comment">//如果是字符串数组，则分别可以man foo, man foo-bar, man 2 foo来查看。：</span></span><br><span class="line">"name": "foo",</span><br><span class="line">"man": ["./man/foo.1", "./man/bar.1", "./man/foo.2" ]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>directories：CommonJS包所要求的目录结构信息，目前除了告诉别人你的程序目录结构，貌似没有别的什么用。 下级字段可以是：<code>lib, bin, man, doc, example</code>。 每个都是字符串。</li>
+<li>repository：包的仓库地址。如：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"repository": &#123;</span><br><span class="line">  "type": "git",</span><br><span class="line">  "url": "http://github.com/ijse/project.git"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>scripts &amp; config：通过设置这个可以使NPM调用一些命令脚本，封装一些功能。config可以添加一些设置，供scripts读取用，同时这里的值也会被添加到系统的环境变量中。</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//npm start的时候会读取到npm_package_config_port环境变量。</span></span><br><span class="line">"name": "foo",</span><br><span class="line">"config": &#123;</span><br><span class="line">  "port": "8080"</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//同时也可以使用npm config命令来修改设置：</span></span><br><span class="line">npm config set foo:port 8001</span><br></pre></td></tr></table></figure>
+<ul>
+<li>dependencies：指定依赖的其它包，这些依赖是指包发布后正常执行时所需要的，通常使用下面命令来安装：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save otherpackage</span><br></pre></td></tr></table></figure>
+<p>引用包的版本形式可以有如下多种：</p>
+<blockquote>
+<ul>
+<li>version 严格匹配某个版本</li>
+<li><code>&gt;version</code> 必须大于某个版本</li>
+<li><code>&gt;=version</code></li>
+<li><code>&lt;version</code></li>
+<li><code>&lt;=version</code></li>
+<li><code>~version</code> 大概匹配某个版本</li>
+<li><code>^version</code> 兼容某个版本</li>
+<li>1.2.x 可以是1.2.0, 1.2.1等等，但不能是1.3.0</li>
+<li>http://… 指定tarball的url地址</li>
+<li><code>*</code> 任何版本都可以</li>
+<li><code>&quot;&quot;</code> 同上</li>
+<li><code>version1 - version2</code>：说明 <code>&gt;=version1 &lt;=version2</code></li>
+<li><code>range1 || range2</code>: 满足range1 或range2</li>
+<li><code>git://...</code> git地址</li>
+<li><code>user/repo</code> 同上</li>
+<li><code>tag</code> 指定某个tag的版本</li>
+<li><code>path/path</code> 本地包所有文件夹</li>
+</ul>
+</blockquote>
+<p>例如，以下都是可用的：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="attr">"dependencies"</span> :</span><br><span class="line">  &#123; <span class="attr">"foo"</span> : <span class="string">"1.0.0 - 2.9999.9999"</span></span><br><span class="line">  , <span class="attr">"bar"</span> : <span class="string">"&gt;=1.0.2 &lt;2.1.2"</span></span><br><span class="line">  , <span class="attr">"baz"</span> : <span class="string">"&gt;1.0.2 &lt;=2.3.4"</span></span><br><span class="line">  , <span class="attr">"boo"</span> : <span class="string">"2.0.1"</span></span><br><span class="line">  , <span class="attr">"qux"</span> : <span class="string">"&lt;1.0.0 || &gt;=2.3.1 &lt;2.4.5 || &gt;=2.5.2 &lt;3.0.0"</span></span><br><span class="line">  , <span class="attr">"asd"</span> : <span class="string">"http://asdf.com/asdf.tar.gz"</span></span><br><span class="line">  , <span class="attr">"til"</span> : <span class="string">"~1.2"</span></span><br><span class="line">  , <span class="attr">"elf"</span> : <span class="string">"~1.2.3"</span></span><br><span class="line">  , <span class="attr">"two"</span> : <span class="string">"2.x"</span></span><br><span class="line">  , <span class="attr">"thr"</span> : <span class="string">"3.3.x"</span></span><br><span class="line">  , <span class="attr">"lat"</span> : <span class="string">"latest"</span></span><br><span class="line">  , <span class="attr">"dyl"</span> : <span class="string">"file:../dyl"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Git URL可以有如下种形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git:&#x2F;&#x2F;github.com&#x2F;user&#x2F;project.git#commit-ish  </span><br><span class="line">git+ssh:&#x2F;&#x2F;user@hostname:project.git#commit-ish  </span><br><span class="line">git+ssh:&#x2F;&#x2F;user@hostname&#x2F;project.git#commit-ish  </span><br><span class="line">git+http:&#x2F;&#x2F;user@hostname&#x2F;project&#x2F;blah.git#commit-ish  </span><br><span class="line">git+https:&#x2F;&#x2F;user@hostname&#x2F;project&#x2F;blah.git#commit-ish</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>devDependencies：如果是开发中依赖的包，可以在devDependencies设置。语法同上。还可以通过命令行来添加：</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev mypack</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>peerDependencies：相关的依赖，如果你的包是插件，而用户在使用你的包时候，通常也会需要这些依赖（插件），那么可以将依赖列到这里。举个例子，如karma, 这些都是karma的相关插件，一般使用karma的时候都会需要。它的package.json中有设置：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">"peerDependencies": &#123;</span><br><span class="line">  "karma-jasmine": "~0.1.0",</span><br><span class="line">  "karma-requirejs": "~0.2.0",</span><br><span class="line">  "karma-coffee-preprocessor": "~0.1.0",</span><br><span class="line">  "karma-html2js-preprocessor": "~0.1.0",</span><br><span class="line">  "karma-chrome-launcher": "~0.1.0",</span><br><span class="line">  "karma-firefox-launcher": "~0.1.0",</span><br><span class="line">  "karma-phantomjs-launcher": "~0.1.0",</span><br><span class="line">  "karma-script-launcher": "~0.1.0"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>bundledDependencies：绑定的依赖包，发布的时候这些绑定包也会被一同发布。</li>
+<li>optionalDependencies：即使这些依赖没有，也可以正常安装使用。</li>
+<li>engines：指定包运行的环境，如：//engineStrict设置为true强制限定 engine</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"engines": &#123;</span><br><span class="line">  "node": "&gt;=0.10.3 &lt; 0.12",</span><br><span class="line">  "npm": "~1.0.20"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>os：指定你的包可以在哪些系统平台下运行。如下例，该包即可以在darwin和linux平台下运行，而不能在win32下(取值来自<code>process.platform</code>)。还可以指定包运行的cpu架构（取值来自<code>process.arch</code>），如：</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">"os": [ "darwin", "linux", "!win32" ]</span><br><span class="line">"cpu": [ "x64", "!arm" ]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>preferGlobal：如果你的包是命令行运行的，那可以将其设置为true建议用户全局(npm install -g)安装。但它并不强制用户。</li>
+<li>private：设为true这个包将不会发布到NPM平台下。</li>
+<li>publishConfig：这个字段用于设置发布时候的一些设定。尤其方便你希望发布前设定指定的tag或registry。也可以设定其它子字段，但只有tag和registry会影响到发布。</li>
+</ul>
+<p><strong>NPM的一些默认值说明</strong></p>
+<ul>
+<li><code>&quot;scripts&quot;: { &quot;start&quot;: &quot;node server.js&quot; }</code><br>//如果在项目根目录下含有server.js文件，则NPM会自动设置此值。</li>
+<li><code>&quot;scripts&quot;: { &quot;preinstall&quot;: &quot;node-gyp rebuild&quot; }</code><br>//如果在项目根目录下含有binding.gyp文件，则NPM会自动设置此值。</li>
+<li><code>&quot;contributors&quot;: [...]</code><br>//如果项目根目录下含有AUTHORS文件，则NPM会自动将每一行以Name <email> (url)的格式读取并设定此字段。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Nodejs/" rel="tag"><i class="fa fa-tag"></i> Nodejs</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/zh-cn/2016/9/9/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html" rel="prev" title="Linux常用命令参考">
+      <i class="fa fa-chevron-left"></i> Linux常用命令参考
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/zh-cn/2016/9/9/NodeJs%E5%AE%9E%E7%94%A8%E5%BA%93%E5%8F%82%E8%80%83.html" rel="next" title="NodeJs实用库参考">
+      NodeJs实用库参考 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+        </div>
+        
+    
+  <div class="comments">
+    <div id="SOHUCS"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Samuel</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">24k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:06</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/next-theme/pjax@0/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.main-inner',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+document.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  
+  <script data-pjax>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  <script>
+  NexT.utils.loadComments(document.querySelector('#SOHUCS'), () => {
+    var appid = 'cysskePLl';
+    var conf = 'bbbb4f5d897d0b979ef3876ee4bc8a9a';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+    } else {
+      var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});
+    }
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+    </div>
+</body>
+</html>
