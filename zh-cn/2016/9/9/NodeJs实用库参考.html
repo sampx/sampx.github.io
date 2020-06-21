@@ -11,6 +11,9 @@
   <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#c62d2d">
   <link rel="manifest" href="/images/site.webmanifest">
   <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="muKclfq3kj_5qX-OpG2Eo-KiSMT_K6-i8IJwPVnbarI">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -19,7 +22,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.udock.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#37c6c0","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"blog.udock.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#37c6c0","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta name="description" content="收录Nodejs使用包，并配以示例介绍用法，日拱一卒，不断积累更新。随着收录的包数量增长，以后再进行提炼和分类。 minimist解析命令行参数和选项  创建一个新目录  mkdir test &amp;&amp; cd test  用npm初始化一个package.json  npm init &#x2F;&#x2F;按引导回答一系列提示  安装minimist包  npm install minimist –sa">
@@ -140,17 +143,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">12</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">6</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">14</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -222,10 +225,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/sampx" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sampx" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NhbXB4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sampx"><i class="fab fa-github fa-fw"></i></span>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/sampx" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i></a>
+        <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vc2FtcHg=" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx"><i class="fab fa-weibo fa-fw"></i></span>
       </span>
   </div>
 
@@ -236,7 +239,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://wopal.net/" title="https:&#x2F;&#x2F;wopal.net" rel="noopener" target="_blank">创客少年</a>
+          <span class="exturl" data-url="aHR0cHM6Ly93b3BhbC5uZXQ=" title="https:&#x2F;&#x2F;wopal.net">创客少年</span>
         </li>
     </ul>
   </div>
@@ -422,8 +425,8 @@
 <li>使用<br>在package.json文件中为你的模块增加一个命令：然后可以用 npm run readme 命令来生成README.md文件</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;readme&quot;: &quot;node .&#x2F;node_modules&#x2F;.bin&#x2F;node-readme&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/revolunet/node-readme/blob/master/src/.README.md" target="_blank" rel="noopener">详细模板</a></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>通配符匹配：Glob： <a href="https://github.com/isaacs/node-glob" target="_blank" rel="noopener">https://github.com/isaacs/node-glob</a><br>时间处理工具：Moments：<a href="http://momentjs.com/" target="_blank" rel="noopener">http://momentjs.com/</a><br>项目生成器脚手架： <a href="http://yeoman.io/" target="_blank" rel="noopener">http://yeoman.io/</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Jldm9sdW5ldC9ub2RlLXJlYWRtZS9ibG9iL21hc3Rlci9zcmMvLlJFQURNRS5tZA==">详细模板<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>通配符匹配：Glob： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lzYWFjcy9ub2RlLWdsb2I=">https://github.com/isaacs/node-glob<i class="fa fa-external-link-alt"></i></span><br>时间处理工具：Moments：<span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNvbS8=">http://momentjs.com/<i class="fa fa-external-link-alt"></i></span><br>项目生成器脚手架： <span class="exturl" data-url="aHR0cDovL3llb21hbi5pby8=">http://yeoman.io/<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 

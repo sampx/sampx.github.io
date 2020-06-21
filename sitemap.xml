@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.udock.cn/zh-cn/2020/6/6/20200621170045.html</loc>
+    
+    <lastmod>2020-06-21T09:00:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.udock.cn/tags/index.html</loc>
     
     <lastmod>2020-06-21T08:40:04.238Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://blog.udock.cn/about/me.html</loc>
     
     <lastmod>2020-06-20T17:46:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.udock.cn/googlec0f45ab803f091c4.html</loc>
-    
-    <lastmod>2020-06-20T03:44:20.542Z</lastmod>
     
   </url>
   
