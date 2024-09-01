@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh-CN,en,default">
+<html lang="zh-cn">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
   <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
   <link rel="manifest" href="/images/site.webmanifest">
-  <meta name="msapplication-config" content="/images/browserconfig.xml">
-  <meta http-equiv="Cache-Control" content="no-transform">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
   <meta name="google-site-verification" content="muKclfq3kj_5qX-OpG2Eo-KiSMT_K6-i8IJwPVnbarI">
   <meta name="msvalidate.01" content="49155335AA7251FC516012A662A2A885">
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CLobster+Two:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.udock.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#37c6c0","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="记录Linux常用命令及用法，随便写写，加深记忆，自用备查。 一、文件压缩和打包1. gzip&#x2F;gunzip1234[root]# gzip filename.ext[root]# ls -lfilename.ext.gz[root]# gunzip filename.ext.gz  2. tar12[root]# tar -czvf boot.tgz &#x2F;boot[root]# tar -zxvf">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.udock.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#37c6c0","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录Linux常用命令及用法，随便写写，加深记忆，自用备查。 一、文件压缩和打包1. gzip&#x2F;gunzip1234[root]# gzip filename.ext[root]# ls -lfilename.ext.gz[root]# gunzip filename.ext.gz  2. tar12[root]# tar -czvf boot.tgz &#x2F;boot[root]# tar">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux常用命令参考">
 <meta property="og:url" content="http://blog.udock.cn/zh-cn/2016/9/9/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html">
 <meta property="og:site_name" content="uDock">
-<meta property="og:description" content="记录Linux常用命令及用法，随便写写，加深记忆，自用备查。 一、文件压缩和打包1. gzip&#x2F;gunzip1234[root]# gzip filename.ext[root]# ls -lfilename.ext.gz[root]# gunzip filename.ext.gz  2. tar12[root]# tar -czvf boot.tgz &#x2F;boot[root]# tar -zxvf">
+<meta property="og:description" content="记录Linux常用命令及用法，随便写写，加深记忆，自用备查。 一、文件压缩和打包1. gzip&#x2F;gunzip1234[root]# gzip filename.ext[root]# ls -lfilename.ext.gz[root]# gunzip filename.ext.gz  2. tar12[root]# tar -czvf boot.tgz &#x2F;boot[root]# tar">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-09-08T09:29:23.000Z">
 <meta property="article:modified_time" content="2016-09-08T09:29:23.000Z">
@@ -39,96 +36,58 @@
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="http://blog.udock.cn/zh-cn/2016/9/9/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-cn'
-  };
-</script>
 
-  <title>Linux常用命令参考 | uDock</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-cn","comments":true,"permalink":"http://blog.udock.cn/zh-cn/2016/9/9/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html","path":"zh-cn/2016/9/9/Linux常用命令参考.html","title":"Linux常用命令参考"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux常用命令参考 | uDock</title>
   
 
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?e347bffca624805bca03e592c7a8e681"></script>
 
-  <script data-pjax>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?e347bffca624805bca03e592c7a8e681";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+
+
 
 
 
 
   <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before, .use-motion .logo-line-after {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 <link rel="alternate" href="/atom.xml" title="uDock" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <main class="main">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-        <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-        <span class="toggle-line toggle-line-first"></span>
-        <span class="toggle-line toggle-line-middle"></span>
-        <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <i class="logo-line-before"></i>
-      <h1 class="site-title">uDock</h1>
-      <i class="logo-line-after"></i>
+      <i class="logo-line"></i>
+      <p class="site-title">uDock</p>
+      <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">吾道口</p>
+      <p class="site-subtitle" itemprop="description">游DO客</p>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -137,27 +96,7 @@
 
 
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">10</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">10</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -169,41 +108,34 @@
 
   <div class="search-pop-overlay">
     <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
-</div>
-          
+</header>
+        
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -212,43 +144,41 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、文件压缩和打包"><span class="nav-number">1.</span> <span class="nav-text">一、文件压缩和打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-gzip-gunzip"><span class="nav-number">1.1.</span> <span class="nav-text">1. gzip&#x2F;gunzip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-tar"><span class="nav-number">1.2.</span> <span class="nav-text">2. tar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-bizp2"><span class="nav-number">1.3.</span> <span class="nav-text">3. bizp2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-cpio"><span class="nav-number">1.4.</span> <span class="nav-text">4. cpio</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、文件系统"><span class="nav-number">2.</span> <span class="nav-text">二、文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-分区"><span class="nav-number">2.1.</span> <span class="nav-text">1. 分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-磁盘挂载"><span class="nav-number">2.2.</span> <span class="nav-text">2. 磁盘挂载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-解除挂载"><span class="nav-number">2.3.</span> <span class="nav-text">3. 解除挂载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-查看可用空间"><span class="nav-number">2.4.</span> <span class="nav-text">4. 查看可用空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-设置启动自动挂载：-etc-fstab"><span class="nav-number">2.5.</span> <span class="nav-text">5. 设置启动自动挂载： &#x2F;etc&#x2F;fstab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-磁盘检查：fsck"><span class="nav-number">2.6.</span> <span class="nav-text">6. 磁盘检查：fsck</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、逻辑卷"><span class="nav-number">3.</span> <span class="nav-text">三、逻辑卷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-概念"><span class="nav-number">3.1.</span> <span class="nav-text">1. 概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-制作逻辑卷"><span class="nav-number">3.2.</span> <span class="nav-text">2. 制作逻辑卷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、文件链接"><span class="nav-number">4.</span> <span class="nav-text">四、文件链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-硬链接"><span class="nav-number">4.1.</span> <span class="nav-text">1. 硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-软链接"><span class="nav-number">4.2.</span> <span class="nav-text">2. 软链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、实用命令"><span class="nav-number">5.</span> <span class="nav-text">五、实用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grep-搜索文本"><span class="nav-number">5.1.</span> <span class="nav-text">grep 搜索文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gpasswd-添加用户到组"><span class="nav-number">5.2.</span> <span class="nav-text">gpasswd 添加用户到组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu-启用root"><span class="nav-number">5.3.</span> <span class="nav-text">Ubuntu 启用root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装telnet"><span class="nav-number">5.4.</span> <span class="nav-text">安装telnet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、实用工具"><span class="nav-number">6.</span> <span class="nav-text">六、实用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ufw防火墙"><span class="nav-number">6.1.</span> <span class="nav-text">ufw防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置NTP时间同步服务"><span class="nav-number">6.2.</span> <span class="nav-text">设置NTP时间同步服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nc测试udp端口"><span class="nav-number">6.3.</span> <span class="nav-text">nc测试udp端口</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E5%92%8C%E6%89%93%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">一、文件压缩和打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-gzip-gunzip"><span class="nav-number">1.1.</span> <span class="nav-text">1. gzip&#x2F;gunzip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-tar"><span class="nav-number">1.2.</span> <span class="nav-text">2. tar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-bizp2"><span class="nav-number">1.3.</span> <span class="nav-text">3. bizp2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-cpio"><span class="nav-number">1.4.</span> <span class="nav-text">4. cpio</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">二、文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%86%E5%8C%BA"><span class="nav-number">2.1.</span> <span class="nav-text">1. 分区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%A3%81%E7%9B%98%E6%8C%82%E8%BD%BD"><span class="nav-number">2.2.</span> <span class="nav-text">2. 磁盘挂载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%A7%A3%E9%99%A4%E6%8C%82%E8%BD%BD"><span class="nav-number">2.3.</span> <span class="nav-text">3. 解除挂载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%9F%A5%E7%9C%8B%E5%8F%AF%E7%94%A8%E7%A9%BA%E9%97%B4"><span class="nav-number">2.4.</span> <span class="nav-text">4. 查看可用空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E8%AE%BE%E7%BD%AE%E5%90%AF%E5%8A%A8%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD%EF%BC%9A-etc-fstab"><span class="nav-number">2.5.</span> <span class="nav-text">5. 设置启动自动挂载： &#x2F;etc&#x2F;fstab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E7%A3%81%E7%9B%98%E6%A3%80%E6%9F%A5%EF%BC%9Afsck"><span class="nav-number">2.6.</span> <span class="nav-text">6. 磁盘检查：fsck</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%80%BB%E8%BE%91%E5%8D%B7"><span class="nav-number">3.</span> <span class="nav-text">三、逻辑卷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A6%82%E5%BF%B5"><span class="nav-number">3.1.</span> <span class="nav-text">1. 概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%88%B6%E4%BD%9C%E9%80%BB%E8%BE%91%E5%8D%B7"><span class="nav-number">3.2.</span> <span class="nav-text">2. 制作逻辑卷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5"><span class="nav-number">4.</span> <span class="nav-text">四、文件链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%A1%AC%E9%93%BE%E6%8E%A5"><span class="nav-number">4.1.</span> <span class="nav-text">1. 硬链接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="nav-number">4.2.</span> <span class="nav-text">2. 软链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%9E%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">5.</span> <span class="nav-text">五、实用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grep-%E6%90%9C%E7%B4%A2%E6%96%87%E6%9C%AC"><span class="nav-number">5.1.</span> <span class="nav-text">grep 搜索文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gpasswd-%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%88%B0%E7%BB%84"><span class="nav-number">5.2.</span> <span class="nav-text">gpasswd 添加用户到组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ubuntu-%E5%90%AF%E7%94%A8root"><span class="nav-number">5.3.</span> <span class="nav-text">Ubuntu 启用root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85telnet"><span class="nav-number">5.4.</span> <span class="nav-text">安装telnet</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">6.</span> <span class="nav-text">六、实用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ufw%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">6.1.</span> <span class="nav-text">ufw防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AENTP%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E6%9C%8D%E5%8A%A1"><span class="nav-number">6.2.</span> <span class="nav-text">设置NTP时间同步服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nc%E6%B5%8B%E8%AF%95udp%E7%AB%AF%E5%8F%A3"><span class="nav-number">6.3.</span> <span class="nav-text">nc测试udp端口</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Samuel"
       src="/images/sam.jpg">
   <p class="site-author-name" itemprop="name">Samuel</p>
   <div class="site-description" itemprop="description">茧中的爬虫</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
+          <a href="/categories/">
         <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="/tags/">
         <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
         <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NhbXB4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sampx"><i class="fab fa-github fa-fw"></i></span>
       </span>
@@ -256,92 +186,84 @@
         <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vc2FtcHg=" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx"><i class="fab fa-weibo fa-fw"></i></span>
       </span>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></span>
   </div>
 
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
-      友情链接
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <span class="exturl" data-url="aHR0cHM6Ly93b3BhbC5uZXQ=" title="https:&#x2F;&#x2F;wopal.net">创客少年</span>
-        </li>
-    </ul>
-  </div>
-
+        </div>
       </div>
-        <div class="back-to-top motion-element">
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </header>
-
-      
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
-
-
-      <div class="main-inner">
-        
-
-        <div class="content post posts-expand">
-          
 
     
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-cn">
     <link itemprop="mainEntityOfPage" href="http://blog.udock.cn/zh-cn/2016/9/9/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/sam.jpg">
       <meta itemprop="name" content="Samuel">
-      <meta itemprop="description" content="茧中的爬虫">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="uDock">
+      <meta itemprop="description" content="茧中的爬虫">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux常用命令参考 | uDock">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           Linux常用命令参考
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-09-08 17:29:23" itemprop="dateCreated datePublished" datetime="2016-09-08T17:29:23+08:00">2016-09-08</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2016-09-08 17:29:23" itemprop="dateCreated datePublished" datetime="2016-09-08T17:29:23+08:00">2016-09-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+        </span>
+    </span>
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
   
   <span class="post-meta-item">
     
@@ -350,26 +272,28 @@
       </span>
       <span class="post-meta-item-text">Changyan：</span>
     
-    
-      <a title="changyan" href="/zh-cn/2016/9/9/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="zh-cn/2016/9/9/Linux常用命令参考.html" itemprop="commentCount"></span>
-      </a>
-    
+    <a title="Linux常用命令参考" href="/zh-cn/2016/9/9/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::583da578d77ff1a0f62381a2c36faf36" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>2.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>7 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>887</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -377,26 +301,21 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody"><p>记录Linux常用命令及用法，随便写写，加深记忆，自用备查。</p>
+<h2 id="一、文件压缩和打包"><a href="#一、文件压缩和打包" class="headerlink" title="一、文件压缩和打包"></a>一、文件压缩和打包</h2><h3 id="1-gzip-gunzip"><a href="#1-gzip-gunzip" class="headerlink" title="1. gzip&#x2F;gunzip"></a>1. gzip&#x2F;gunzip</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root]# gzip filename.ext</span><br><span class="line">[root]# <span class="built_in">ls</span> -l</span><br><span class="line">filename.ext.gz</span><br><span class="line">[root]# gunzip filename.ext.gz</span><br></pre></td></tr></table></figure>
 
-      
-        <p>记录Linux常用命令及用法，随便写写，加深记忆，自用备查。</p>
-<h2 id="一、文件压缩和打包"><a href="#一、文件压缩和打包" class="headerlink" title="一、文件压缩和打包"></a>一、文件压缩和打包</h2><h3 id="1-gzip-gunzip"><a href="#1-gzip-gunzip" class="headerlink" title="1. gzip/gunzip"></a>1. gzip/gunzip</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root]<span class="comment"># gzip filename.ext</span></span><br><span class="line">[root]<span class="comment"># ls -l</span></span><br><span class="line">filename.ext.gz</span><br><span class="line">[root]<span class="comment"># gunzip filename.ext.gz</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-tar"><a href="#2-tar" class="headerlink" title="2. tar"></a>2. tar</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash"> tar -czvf boot.tgz /boot</span></span><br><span class="line"><span class="meta">[root]#</span><span class="bash"> tar -zxvf boot.tgz -C /tmp</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-tar"><a href="#2-tar" class="headerlink" title="2. tar"></a>2. tar</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">[root]# </span><span class="language-bash">tar -czvf boot.tgz /boot</span></span><br><span class="line"><span class="meta prompt_">[root]# </span><span class="language-bash">tar -zxvf boot.tgz -C /tmp</span></span><br></pre></td></tr></table></figure>
 <h3 id="3-bizp2"><a href="#3-bizp2" class="headerlink" title="3. bizp2"></a>3. bizp2</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bzip2 intall.log</span><br><span class="line">ls insatll.log.bz2</span><br><span class="line">insatll.log.bz2</span><br><span class="line">bzip2 -d insatll.log.bz2</span><br></pre></td></tr></table></figure>
 <h3 id="4-cpio"><a href="#4-cpio" class="headerlink" title="4. cpio"></a>4. cpio</h3><ul>
-<li>备份<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash"> find /etc -name *.conf | cpio -cov &gt; /tmp/conf.cpio</span></span><br></pre></td></tr></table></figure></li>
-<li>还原<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash"> cpio --absolute-filenames -icvu &lt; /tmp/conf.cpio</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>备份<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">[root]# </span><span class="language-bash">find /etc -name *.conf | cpio -cov &gt; /tmp/conf.cpio</span></span><br></pre></td></tr></table></figure></li>
+<li>还原<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">[root]# </span><span class="language-bash">cpio --absolute-filenames -icvu &lt; /tmp/conf.cpio</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="二、文件系统"><a href="#二、文件系统" class="headerlink" title="二、文件系统"></a>二、文件系统</h2><h3 id="1-分区"><a href="#1-分区" class="headerlink" title="1. 分区"></a>1. 分区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
-<h3 id="2-磁盘挂载"><a href="#2-磁盘挂载" class="headerlink" title="2. 磁盘挂载"></a>2. 磁盘挂载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mount DEVICE MOUNT_POINT</span><br><span class="line">mkdir newDisk</span><br><span class="line">mount &#x2F;dev&#x2F;sdb1 newDisk</span><br><span class="line">mount  --显示所有挂载</span><br></pre></td></tr></table></figure>
-<h3 id="3-解除挂载"><a href="#3-解除挂载" class="headerlink" title="3. 解除挂载"></a>3. 解除挂载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">umount DEVICE&#x2F;PATH</span><br><span class="line">or</span><br><span class="line">umount MOUNT_POINT</span><br></pre></td></tr></table></figure>
+<h2 id="二、文件系统"><a href="#二、文件系统" class="headerlink" title="二、文件系统"></a>二、文件系统</h2><h3 id="1-分区"><a href="#1-分区" class="headerlink" title="1. 分区"></a>1. 分区</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+<h3 id="2-磁盘挂载"><a href="#2-磁盘挂载" class="headerlink" title="2. 磁盘挂载"></a>2. 磁盘挂载</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mount DEVICE MOUNT_POINT</span><br><span class="line">mkdir newDisk</span><br><span class="line">mount /dev/sdb1 newDisk</span><br><span class="line">mount  --显示所有挂载</span><br></pre></td></tr></table></figure>
+<h3 id="3-解除挂载"><a href="#3-解除挂载" class="headerlink" title="3. 解除挂载"></a>3. 解除挂载</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">umount DEVICE/PATH</span><br><span class="line">or</span><br><span class="line">umount MOUNT_POINT</span><br></pre></td></tr></table></figure>
 <h3 id="4-查看可用空间"><a href="#4-查看可用空间" class="headerlink" title="4. 查看可用空间"></a>4. 查看可用空间</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br></pre></td></tr></table></figure>
-<h3 id="5-设置启动自动挂载：-etc-fstab"><a href="#5-设置启动自动挂载：-etc-fstab" class="headerlink" title="5. 设置启动自动挂载： /etc/fstab"></a>5. 设置启动自动挂载： /etc/fstab</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "/dev/sdb1 /root/newDisk ext3 defaults 0 0" &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
-<p>此命令将/dev/sdb1挂载到/root/newDisk目录，defaults表示默认挂载，第一个0代表dump时此分区不存档，第二个0表示系统启动时不对此分区进行fsck（1给根分区用，2检查完根分区后检查）</p>
+<h3 id="5-设置启动自动挂载：-etc-fstab"><a href="#5-设置启动自动挂载：-etc-fstab" class="headerlink" title="5. 设置启动自动挂载： &#x2F;etc&#x2F;fstab"></a>5. 设置启动自动挂载： &#x2F;etc&#x2F;fstab</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;/dev/sdb1 /root/newDisk ext3 defaults 0 0&quot; &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+<p>此命令将&#x2F;dev&#x2F;sdb1挂载到&#x2F;root&#x2F;newDisk目录，defaults表示默认挂载，第一个0代表dump时此分区不存档，第二个0表示系统启动时不对此分区进行fsck（1给根分区用，2检查完根分区后检查）</p>
 <h3 id="6-磁盘检查：fsck"><a href="#6-磁盘检查：fsck" class="headerlink" title="6. 磁盘检查：fsck"></a>6. 磁盘检查：fsck</h3><p>磁盘错误可以用fsck尝试修复：（<strong>磁盘必须是未挂载状态，否则会造成文件系统损坏</strong>）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fsck -t TYPE /DEVICE/PATH</span><br><span class="line">fsck -t ext3 /dev/sdb1</span><br></pre></td></tr></table></figure>
 <h2 id="三、逻辑卷"><a href="#三、逻辑卷" class="headerlink" title="三、逻辑卷"></a>三、逻辑卷</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><ul>
@@ -405,7 +324,7 @@
 <li>逻辑卷（LV），PV中划出来的一块逻辑磁盘</li>
 </ul>
 <h3 id="2-制作逻辑卷"><a href="#2-制作逻辑卷" class="headerlink" title="2. 制作逻辑卷"></a>2. 制作逻辑卷</h3><p>1.将磁盘分区创建为物理卷（<strong>分区格式必须是8e</strong>）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fdisk &#x2F;dev&#x2F;sdb</span><br><span class="line">pvcreate &#x2F;dev&#x2F;sdb1</span><br><span class="line">pvcreate &#x2F;dev&#x2F;sdb2</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br><span class="line">pvcreate /dev/sdb1</span><br><span class="line">pvcreate /dev/sdb2</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 <p>2.查看物理卷信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pvscan or pvdisplay</span><br></pre></td></tr></table></figure>
 <p>3.创建并查询卷组</p>
@@ -419,32 +338,30 @@
 <h2 id="四、文件链接"><a href="#四、文件链接" class="headerlink" title="四、文件链接"></a>四、文件链接</h2><h3 id="1-硬链接"><a href="#1-硬链接" class="headerlink" title="1. 硬链接"></a>1. 硬链接</h3><p>Linux中所有的文件都会有一个编号，称为inode，多个文件名指向同一索引节点是被允许的，这种链接叫硬链接，当最后一个链接被删除时，文件的数据块才被释放。<br>硬链接有两个限制：</p>
 <ul>
 <li>不允许给目录创建硬链接</li>
-<li>只有在同一文件系统内的文件之间才能创建硬链接，即不同分区上的两个文件之间不能建立硬链接<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln TARGET_FILE LINK_NAME</span><br><span class="line">ls -li     //查看inode信息（链接数加一）</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>只有在同一文件系统内的文件之间才能创建硬链接，即不同分区上的两个文件之间不能建立硬链接<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln TARGET_FILE LINK_NAME</span><br><span class="line">ls -li     //查看inode信息（链接数加一）</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="2-软链接"><a href="#2-软链接" class="headerlink" title="2. 软链接"></a>2. 软链接</h3><p>软链接称为符号链接，是一个包含了另一个文件路径的文件，可以指向任意文件或目录，也可以跨不同的文件系统。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s TARGET_FILE LINK_NAME</span><br><span class="line">ls -li     //查看inode信息（链接数不变）</span><br></pre></td></tr></table></figure>
 
-<h2 id="五、实用命令"><a href="#五、实用命令" class="headerlink" title="五、实用命令"></a>五、实用命令</h2><h3 id="grep-搜索文本"><a href="#grep-搜索文本" class="headerlink" title="grep 搜索文本"></a>grep 搜索文本</h3><p><code>grep -ivnc &#39;express&#39; filename</code></p>
+<h2 id="五、实用命令"><a href="#五、实用命令" class="headerlink" title="五、实用命令"></a>五、实用命令</h2><h3 id="grep-搜索文本"><a href="#grep-搜索文本" class="headerlink" title="grep 搜索文本"></a>grep 搜索文本</h3><p><code>grep -ivnc &#39;express&#39; filename </code></p>
 <ul>
 <li><code>-i</code> 不区分大小写</li>
 <li><code>-c</code> 统计包含匹配的行数</li>
 <li><code>-n</code> 输出行号</li>
 <li><code>-v</code> 反向匹配</li>
 </ul>
-<h3 id="gpasswd-添加用户到组"><a href="#gpasswd-添加用户到组" class="headerlink" title="gpasswd 添加用户到组"></a>gpasswd 添加用户到组</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -a demo sudo &#x2F;&#x2F;将用户加入sudo组</span><br></pre></td></tr></table></figure>
+<h3 id="gpasswd-添加用户到组"><a href="#gpasswd-添加用户到组" class="headerlink" title="gpasswd 添加用户到组"></a>gpasswd 添加用户到组</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpasswd -a demo sudo //将用户加入sudo组</span><br></pre></td></tr></table></figure>
 
 <h3 id="Ubuntu-启用root"><a href="#Ubuntu-启用root" class="headerlink" title="Ubuntu 启用root"></a>Ubuntu 启用root</h3><p>启用root用户或密码重设：<br>sudo passwd root</p>
 <p>临时切换命令如下：<br>sudo -s -H</p>
 <p>关闭root帐户<br>sudo passwd -l root</p>
 <h3 id="安装telnet"><a href="#安装telnet" class="headerlink" title="安装telnet"></a>安装telnet</h3><p>sudo apt-get install xinetd telnetd</p>
-<h2 id="六、实用工具"><a href="#六、实用工具" class="headerlink" title="六、实用工具"></a>六、实用工具</h2><h3 id="ufw防火墙"><a href="#ufw防火墙" class="headerlink" title="ufw防火墙"></a>ufw防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br><span class="line">sudo ufw allow ssh</span><br><span class="line">sudo ufw allow 4444/tcp</span><br><span class="line">sudo ufw allow 80/tcp</span><br><span class="line">sudo ufw allow 443/tcp</span><br><span class="line">sudo ufw status</span><br><span class="line">sudo ufw -h</span><br><span class="line">sudo ufw show added</span><br><span class="line">sudo ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+<h2 id="六、实用工具"><a href="#六、实用工具" class="headerlink" title="六、实用工具"></a>六、实用工具</h2><h3 id="ufw防火墙"><a href="#ufw防火墙" class="headerlink" title="ufw防火墙"></a>ufw防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install ufw</span><br><span class="line"><span class="built_in">sudo</span> ufw allow ssh</span><br><span class="line"><span class="built_in">sudo</span> ufw allow 4444/tcp</span><br><span class="line"><span class="built_in">sudo</span> ufw allow 80/tcp</span><br><span class="line"><span class="built_in">sudo</span> ufw allow 443/tcp</span><br><span class="line"><span class="built_in">sudo</span> ufw status</span><br><span class="line"><span class="built_in">sudo</span> ufw -h</span><br><span class="line"><span class="built_in">sudo</span> ufw show added</span><br><span class="line"><span class="built_in">sudo</span> ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
 <p><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGlnaXRhbG9jZWFuLmNvbS9jb21tdW5pdHkvdHV0b3JpYWxzL2hvdy10by1zZXR1cC1hLWZpcmV3YWxsLXdpdGgtdWZ3LW9uLWFuLXVidW50dS1hbmQtZGViaWFuLWNsb3VkLXNlcnZlcg==">进一步学习<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="设置NTP时间同步服务"><a href="#设置NTP时间同步服务" class="headerlink" title="设置NTP时间同步服务"></a>设置NTP时间同步服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure tzdata &#x2F;&#x2F;配置时区</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ntp &#x2F;&#x2F;安装ntp服务</span><br></pre></td></tr></table></figure>
-<h3 id="nc测试udp端口"><a href="#nc测试udp端口" class="headerlink" title="nc测试udp端口"></a>nc测试udp端口</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -vuz 42.11.12.13 123</span><br><span class="line">Connection to 42.11.12.13 123 port [udp&#x2F;ntp] succeeded!</span><br></pre></td></tr></table></figure>
+<h3 id="设置NTP时间同步服务"><a href="#设置NTP时间同步服务" class="headerlink" title="设置NTP时间同步服务"></a>设置NTP时间同步服务</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure tzdata //配置时区</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ntp //安装ntp服务</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="nc测试udp端口"><a href="#nc测试udp端口" class="headerlink" title="nc测试udp端口"></a>nc测试udp端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nc -vuz 42.11.12.13 123</span><br><span class="line">Connection to 42.11.12.13 123 port [udp/ntp] succeeded!</span><br></pre></td></tr></table></figure>
 <p>nc命令用法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usage: nc [-46DdhklnrStUuvzC] [-i interval] [-p source_port]</span><br><span class="line">[-s source_ip_address] [-T ToS] [-w timeout] [-X proxy_version]</span><br><span class="line">[-x proxy_address[:port]] [hostname] [port[s]]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usage: nc [-46DdhklnrStUuvzC] [-i interval] [-p source_port]</span><br><span class="line">[-s source_ip_address] [-T ToS] [-w timeout] [-X proxy_version]</span><br><span class="line">[-x proxy_address[:port]] [hostname] [port[s]]</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -452,97 +369,65 @@
     
     
 
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
           </div>
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/zh-cn/2016/9/9/vim%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%80%9F%E6%9F%A5%E8%A1%A8.html" rel="prev" title="Vim快捷键速查表">
-      <i class="fa fa-chevron-left"></i> Vim快捷键速查表
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/zh-cn/2016/9/9/Nodejs-Package-json-%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html" rel="next" title="Nodejs Package.json 简要说明">
-      Nodejs Package.json 简要说明 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/zh-cn/2016/9/9/vim%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%80%9F%E6%9F%A5%E8%A1%A8.html" rel="prev" title="Vim快捷键速查表">
+                  <i class="fa fa-angle-left"></i> Vim快捷键速查表
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zh-cn/2016/9/9/Nodejs-Package-json-%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html" rel="next" title="Nodejs Package.json 简要说明">
+                  Nodejs Package.json 简要说明 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-        </div>
-        
-    
-  <div class="comments">
-    <div id="SOHUCS"></div>
-  </div>
-  
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-      </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
+    <div class="comments" id="SOHUCS" sid="583da578d77ff1a0f62381a2c36faf36"></div>
+</div>
+  </main>
 
-        
+  <footer class="footer">
+    <div class="footer-inner">
 
-<div class="copyright">
-  
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">uDock</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
     </span>
-    <span title="站点总字数">23k</span>
-    <span class="post-meta-divider">|</span>
+    <span class="author" itemprop="copyrightHolder">uDock</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">10k</span>
+  </span>
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:03</span>
+    <span title="站点阅读时长">1:23</span>
+  </span>
 </div>
-
-        
 <div class="busuanzi-count">
-  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
@@ -550,8 +435,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
@@ -561,16 +445,23 @@
     </span>
 </div>
 
+    </div>
+  </footer>
 
-
-
-
-
-
-
-      </div>
-    </footer>
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3/lib/anime.min.js"></script>
@@ -578,136 +469,28 @@
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
 
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
 
-<script src="/js/bookmark.js"></script>
-
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.main-inner',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-document.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
-
-  
-  <script data-pjax>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"http://blog.udock.cn/zh-cn/2016/9/9/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cysskePLl","appkey":"bbbb4f5d897d0b979ef3876ee4bc8a9a","count":true}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
 
-
-
-
-
-
-
-
-
-    <div id="pjax">
-  
-
-  
-  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
-  <script>
-      window.addEventListener('load', () => {
-      quicklink({
-        timeout : 3000,
-        priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'http://blog.udock.cn/zh-cn/2016/9/9/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83.html',]
-      });
-      });
-  </script>
-
-  <script>
-  NexT.utils.loadComments(document.querySelector('#SOHUCS'), () => {
-    var appid = 'cysskePLl';
-    var conf = 'bbbb4f5d897d0b979ef3876ee4bc8a9a';
-    var width = window.innerWidth || document.documentElement.clientWidth;
-    if (width < 960) {
-      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
-    } else {
-      var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});
-    }
-  });
-  </script>
-  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
-
-    </div>
 </body>
 </html>

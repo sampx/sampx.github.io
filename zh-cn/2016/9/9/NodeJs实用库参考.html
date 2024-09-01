@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-<html lang="zh-CN,en,default">
+<html lang="zh-cn">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
   <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#222">
   <link rel="manifest" href="/images/site.webmanifest">
-  <meta name="msapplication-config" content="/images/browserconfig.xml">
-  <meta http-equiv="Cache-Control" content="no-transform">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
   <meta name="google-site-verification" content="muKclfq3kj_5qX-OpG2Eo-KiSMT_K6-i8IJwPVnbarI">
   <meta name="msvalidate.01" content="49155335AA7251FC516012A662A2A885">
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Lato:300,300italic,400,400italic,700,700italic%7CLobster+Two:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.udock.cn","root":"/","scheme":"Gemini","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#37c6c0","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="收录Nodejs使用包，并配以示例介绍用法，日拱一卒，不断积累更新。随着收录的包数量增长，以后再进行提炼和分类。 minimist解析命令行参数和选项  创建一个新目录  mkdir test &amp;&amp; cd test  用npm初始化一个package.json  npm init &#x2F;&#x2F;按引导回答一系列提示  安装minimist包  npm install minimist --s">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.udock.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.20.0","exturl":true,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#37c6c0","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":-1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="收录Nodejs使用包，并配以示例介绍用法，日拱一卒，不断积累更新。随着收录的包数量增长，以后再进行提炼和分类。 minimist解析命令行参数和选项  创建一个新目录  mkdir test &amp;&amp; cd test  用npm初始化一个package.json  npm init &#x2F;&#x2F;按引导回答一系列提示  安装minimist包  npm install mi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NodeJs实用库参考">
 <meta property="og:url" content="http://blog.udock.cn/zh-cn/2016/9/9/NodeJs%E5%AE%9E%E7%94%A8%E5%BA%93%E5%8F%82%E8%80%83.html">
 <meta property="og:site_name" content="uDock">
-<meta property="og:description" content="收录Nodejs使用包，并配以示例介绍用法，日拱一卒，不断积累更新。随着收录的包数量增长，以后再进行提炼和分类。 minimist解析命令行参数和选项  创建一个新目录  mkdir test &amp;&amp; cd test  用npm初始化一个package.json  npm init &#x2F;&#x2F;按引导回答一系列提示  安装minimist包  npm install minimist --s">
+<meta property="og:description" content="收录Nodejs使用包，并配以示例介绍用法，日拱一卒，不断积累更新。随着收录的包数量增长，以后再进行提炼和分类。 minimist解析命令行参数和选项  创建一个新目录  mkdir test &amp;&amp; cd test  用npm初始化一个package.json  npm init &#x2F;&#x2F;按引导回答一系列提示  安装minimist包  npm install mi">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-09-12T12:43:45.000Z">
 <meta property="article:modified_time" content="2016-09-12T12:43:45.000Z">
@@ -39,96 +36,58 @@
 <meta property="article:tag" content="Nodejs">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="http://blog.udock.cn/zh-cn/2016/9/9/NodeJs%E5%AE%9E%E7%94%A8%E5%BA%93%E5%8F%82%E8%80%83.html">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-cn'
-  };
-</script>
 
-  <title>NodeJs实用库参考 | uDock</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-cn","comments":true,"permalink":"http://blog.udock.cn/zh-cn/2016/9/9/NodeJs%E5%AE%9E%E7%94%A8%E5%BA%93%E5%8F%82%E8%80%83.html","path":"zh-cn/2016/9/9/NodeJs实用库参考.html","title":"NodeJs实用库参考"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>NodeJs实用库参考 | uDock</title>
   
 
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?e347bffca624805bca03e592c7a8e681"></script>
 
-  <script data-pjax>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?e347bffca624805bca03e592c7a8e681";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+
+
 
 
 
 
   <noscript>
-  <style>
-  body { margin-top: 2rem; }
-
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before, .use-motion .logo-line-after {
-    transform: scaleX(1);
-  }
-
-  .search-pop-overlay, .sidebar-nav { display: none; }
-  .sidebar-panel { display: block; }
-  </style>
-  <div id="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 <link rel="alternate" href="/atom.xml" title="uDock" type="application/atom+xml">
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <main class="main">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-        <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-        <span class="toggle-line toggle-line-first"></span>
-        <span class="toggle-line toggle-line-middle"></span>
-        <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
   <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <i class="logo-line-before"></i>
-      <h1 class="site-title">uDock</h1>
-      <i class="logo-line-after"></i>
+      <i class="logo-line"></i>
+      <p class="site-title">uDock</p>
+      <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">吾道口</p>
+      <p class="site-subtitle" itemprop="description">游DO客</p>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -137,27 +96,7 @@
 
 
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">10</span></a>
-
-  </li>
-        <li class="menu-item menu-item-categories">
-
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">10</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">5</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -169,41 +108,34 @@
 
   <div class="search-pop-overlay">
     <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
     </div>
   </div>
 
-</div>
-          
+</header>
+        
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -212,43 +144,41 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#minimist"><span class="nav-number">1.</span> <span class="nav-text">minimist</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Camel-Case"><span class="nav-number">2.</span> <span class="nav-text">Camel Case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-Case"><span class="nav-number">3.</span> <span class="nav-text">No Case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-readme"><span class="nav-number">4.</span> <span class="nav-text">node-readme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#minimist"><span class="nav-number">1.</span> <span class="nav-text">minimist</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Camel-Case"><span class="nav-number">2.</span> <span class="nav-text">Camel Case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-Case"><span class="nav-number">3.</span> <span class="nav-text">No Case</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-readme"><span class="nav-number">4.</span> <span class="nav-text">node-readme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">5.</span> <span class="nav-text">其他</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Samuel"
       src="/images/sam.jpg">
   <p class="site-author-name" itemprop="name">Samuel</p>
   <div class="site-description" itemprop="description">茧中的爬虫</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
+          <a href="/categories/">
         <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="/tags/">
         <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
         <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3NhbXB4" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sampx"><i class="fab fa-github fa-fw"></i></span>
       </span>
@@ -256,92 +186,84 @@
         <span class="exturl" data-url="aHR0cHM6Ly93ZWliby5jb20vc2FtcHg=" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;sampx"><i class="fab fa-weibo fa-fw"></i></span>
       </span>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></span>
   </div>
 
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
-      友情链接
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <span class="exturl" data-url="aHR0cHM6Ly93b3BhbC5uZXQ=" title="https:&#x2F;&#x2F;wopal.net">创客少年</span>
-        </li>
-    </ul>
-  </div>
-
+        </div>
       </div>
-        <div class="back-to-top motion-element">
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </header>
-
-      
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
-
-
-      <div class="main-inner">
-        
-
-        <div class="content post posts-expand">
-          
 
     
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-cn">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-cn">
     <link itemprop="mainEntityOfPage" href="http://blog.udock.cn/zh-cn/2016/9/9/NodeJs%E5%AE%9E%E7%94%A8%E5%BA%93%E5%8F%82%E8%80%83.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/sam.jpg">
       <meta itemprop="name" content="Samuel">
-      <meta itemprop="description" content="茧中的爬虫">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="uDock">
+      <meta itemprop="description" content="茧中的爬虫">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="NodeJs实用库参考 | uDock">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           NodeJs实用库参考
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-09-12 20:43:45" itemprop="dateCreated datePublished" datetime="2016-09-12T20:43:45+08:00">2016-09-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8F%82%E8%80%83/" itemprop="url" rel="index"><span itemprop="name">技术参考</span></a>
-                </span>
-            </span>
+      <time title="创建时间：2016-09-12 20:43:45" itemprop="dateCreated datePublished" datetime="2016-09-12T20:43:45+08:00">2016-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8F%82%E8%80%83/" itemprop="url" rel="index"><span itemprop="name">技术参考</span></a>
+        </span>
+    </span>
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
   
   <span class="post-meta-item">
     
@@ -350,26 +272,28 @@
       </span>
       <span class="post-meta-item-text">Changyan：</span>
     
-    
-      <a title="changyan" href="/zh-cn/2016/9/9/NodeJs%E5%AE%9E%E7%94%A8%E5%BA%93%E5%8F%82%E8%80%83.html#SOHUCS" itemprop="discussionUrl">
-        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="zh-cn/2016/9/9/NodeJs实用库参考.html" itemprop="commentCount"></span>
-      </a>
-    
+    <a title="NodeJs实用库参考" href="/zh-cn/2016/9/9/NodeJs%E5%AE%9E%E7%94%A8%E5%BA%93%E5%8F%82%E8%80%83.html#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::40143984b871f3ce5d4f7ab21f9ca349" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
   </span>
   
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>3.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>9 分钟</span>
-            </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>599</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -377,10 +301,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>收录Nodejs使用包，并配以示例介绍用法，日拱一卒，不断积累更新。随着收录的包数量增长，以后再进行提炼和分类。</p>
+    <div class="post-body" itemprop="articleBody"><p>收录Nodejs使用包，并配以示例介绍用法，日拱一卒，不断积累更新。随着收录的包数量增长，以后再进行提炼和分类。</p>
 <h2 id="minimist"><a href="#minimist" class="headerlink" title="minimist"></a>minimist</h2><p>解析命令行参数和选项</p>
 <ul>
 <li>创建一个新目录</li>
@@ -389,7 +310,7 @@
 <ul>
 <li>用npm初始化一个package.json</li>
 </ul>
-<p>npm init //按引导回答一系列提示</p>
+<p>npm init &#x2F;&#x2F;按引导回答一系列提示</p>
 <ul>
 <li>安装minimist包</li>
 </ul>
@@ -397,26 +318,26 @@
 <ul>
 <li>新建minimist文件夹并创建一个新文件parse.js，写入以下代码：</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> argv = <span class="built_in">require</span>(<span class="string">'minimist'</span>)(process.argv.slice(<span class="number">2</span>));</span><br><span class="line"><span class="built_in">console</span>.dir(argv);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> argv = <span class="built_in">require</span>(<span class="string">&#x27;minimist&#x27;</span>)(process.<span class="property">argv</span>.<span class="title function_">slice</span>(<span class="number">2</span>));</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">dir</span>(argv);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>执行程序</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node minimist&#x2F;parse.js -a beep -b boop</span><br><span class="line">&#x2F;&#x2F;结果为：两个选项被解释成了map，使用非常方便</span><br><span class="line">&#123; _: [], a: &#39;beep&#39;, b: &#39;boop&#39; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node minimist/parse.js -a beep -b boop</span><br><span class="line">//结果为：两个选项被解释成了map，使用非常方便</span><br><span class="line">&#123; _: [], a: &#x27;beep&#x27;, b: &#x27;boop&#x27; &#125;</span><br></pre></td></tr></table></figure>
 <p>再来一个稍微复杂点的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node minimist&#x2F;parse.js -x 3 -y 4 -n5 -abc --beep&#x3D;boop foo bar</span><br><span class="line"> baz</span><br><span class="line">&#x2F;&#x2F;结果为：一目了然，使用很方便</span><br><span class="line">&#123; _: [ &#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39; ],</span><br><span class="line">  x: 3,</span><br><span class="line">  y: 4,</span><br><span class="line">  n: 5,</span><br><span class="line">  a: true,</span><br><span class="line">  b: true,</span><br><span class="line">  c: true,</span><br><span class="line">  beep: &#39;boop&#39; &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">node minimist/parse.js -x 3 -y 4 -n5 -abc --beep=boop foo bar</span><br><span class="line"> baz</span><br><span class="line">//结果为：一目了然，使用很方便</span><br><span class="line">&#123; _: [ &#x27;foo&#x27;, &#x27;bar&#x27;, &#x27;baz&#x27; ],</span><br><span class="line">  x: 3,</span><br><span class="line">  y: 4,</span><br><span class="line">  n: 5,</span><br><span class="line">  a: true,</span><br><span class="line">  b: true,</span><br><span class="line">  c: true,</span><br><span class="line">  beep: &#x27;boop&#x27; &#125;</span><br></pre></td></tr></table></figure>
 <p>选项说明：</p>
 <blockquote>
 <ul>
 <li>opts.string : a string or array of strings argument names to always treat as strings</li>
-<li>opts.boolean : a boolean, string or array of strings to always treat as booleans. if true will treat all double hyphenated arguments without equal signs as boolean (e.g. affects --foo, not -f or --foo=bar)</li>
+<li>opts.boolean : a boolean, string or array of strings to always treat as booleans. if true will treat all double hyphenated arguments without equal signs as boolean (e.g. affects --foo, not -f or --foo&#x3D;bar)</li>
 <li>opts.alias : an object mapping string names to strings or arrays of string argument names to use as aliases</li>
 <li>opts.default : an object mapping string argument names to default values</li>
 <li>opts.stopEarly : when true, populate argv._ with everything after the first non-option</li>
 <li>opts[&#39;--&#39;] : when true, populate argv._ with everything before the -- and  argv[&#39;--&#39;] with everything after the --. Here&#39;s an example:</li>
 </ul>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require(&#39;&#39;minimist&#39;&#39;)(&#39;one two three -- four five --six&#39;.split(&#39; &#39;), &#123; &#39;--&#39;: true &#125;)</span><br><span class="line">&#123; _: [ &#39;one&#39;, &#39;two&#39;, &#39;three&#39; ],</span><br><span class="line">  &#39;--&#39;: [ &#39;four&#39;, &#39;five&#39;, &#39;--six&#39; ] &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">require(&#x27;&#x27;minimist&#x27;&#x27;)(&#x27;one two three -- four five --six&#x27;.split(&#x27; &#x27;), &#123; &#x27;--&#x27;: true &#125;)</span><br><span class="line">&#123; _: [ &#x27;one&#x27;, &#x27;two&#x27;, &#x27;three&#x27; ],</span><br><span class="line">  &#x27;--&#x27;: [ &#x27;four&#x27;, &#x27;five&#x27;, &#x27;--six&#x27; ] &#125;</span><br></pre></td></tr></table></figure>
 
 <p>Note that with opts[&#39;--&#39;] set, parsing for arguments still stops after the --.</p>
 <blockquote>
@@ -432,7 +353,7 @@
 <ul>
 <li>使用</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var camelCase &#x3D; require(&#39;camel-case&#39;)</span><br><span class="line"></span><br><span class="line">camelCase(&#39;string&#39;)         &#x2F;&#x2F;&#x3D;&gt; &quot;string&quot;</span><br><span class="line">camelCase(&#39;dot.case&#39;)       &#x2F;&#x2F;&#x3D;&gt; &quot;dotCase&quot;</span><br><span class="line">camelCase(&#39;PascalCase&#39;)     &#x2F;&#x2F;&#x3D;&gt; &quot;pascalCase&quot;</span><br><span class="line">camelCase(&#39;version 1.2.10&#39;) &#x2F;&#x2F;&#x3D;&gt; &quot;version_1_2_10&quot;</span><br><span class="line"></span><br><span class="line">camelCase(&#39;STRING 1.2&#39;, &#39;tr&#39;) &#x2F;&#x2F;&#x3D;&gt; &quot;strıng_1_2&quot;</span><br><span class="line"></span><br><span class="line">camelCase(&#39;string 1 2 3&#39;, null, true) &#x2F;&#x2F;&#x3D;&gt; &quot;string123&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var camelCase = require(&#x27;camel-case&#x27;)</span><br><span class="line"></span><br><span class="line">camelCase(&#x27;string&#x27;)         //=&gt; &quot;string&quot;</span><br><span class="line">camelCase(&#x27;dot.case&#x27;)       //=&gt; &quot;dotCase&quot;</span><br><span class="line">camelCase(&#x27;PascalCase&#x27;)     //=&gt; &quot;pascalCase&quot;</span><br><span class="line">camelCase(&#x27;version 1.2.10&#x27;) //=&gt; &quot;version_1_2_10&quot;</span><br><span class="line"></span><br><span class="line">camelCase(&#x27;STRING 1.2&#x27;, &#x27;tr&#x27;) //=&gt; &quot;strıng_1_2&quot;</span><br><span class="line"></span><br><span class="line">camelCase(&#x27;string 1 2 3&#x27;, null, true) //=&gt; &quot;string123&quot;</span><br></pre></td></tr></table></figure>
 
 <h2 id="No-Case"><a href="#No-Case" class="headerlink" title="No Case"></a>No Case</h2><p>转换字符串为小写并以空格分割格式化工具</p>
 <ul>
@@ -442,7 +363,7 @@
 <ul>
 <li>使用</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var noCase &#x3D; require(&#39;no-case&#39;)</span><br><span class="line"></span><br><span class="line">noCase(null)              &#x2F;&#x2F;&#x3D;&gt; &quot;&quot;</span><br><span class="line">noCase(&#39;string&#39;)          &#x2F;&#x2F;&#x3D;&gt; &quot;string&quot;</span><br><span class="line">noCase(&#39;dot.case&#39;)        &#x2F;&#x2F;&#x3D;&gt; &quot;dot case&quot;</span><br><span class="line">noCase(&#39;camelCase&#39;)       &#x2F;&#x2F;&#x3D;&gt; &quot;camel case&quot;</span><br><span class="line">noCase(&#39;Beyoncé Knowles&#39;) &#x2F;&#x2F;&#x3D;&gt; &quot;beyoncé knowles&quot;</span><br><span class="line"></span><br><span class="line">noCase(&#39;A STRING&#39;, &#39;tr&#39;) &#x2F;&#x2F;&#x3D;&gt; &quot;a strıng&quot;</span><br><span class="line"></span><br><span class="line">noCase(&#39;HELLO WORLD!&#39;, null, &#39;_&#39;) &#x2F;&#x2F;&#x3D;&gt; &quot;hello_world&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var noCase = require(&#x27;no-case&#x27;)</span><br><span class="line"></span><br><span class="line">noCase(null)              //=&gt; &quot;&quot;</span><br><span class="line">noCase(&#x27;string&#x27;)          //=&gt; &quot;string&quot;</span><br><span class="line">noCase(&#x27;dot.case&#x27;)        //=&gt; &quot;dot case&quot;</span><br><span class="line">noCase(&#x27;camelCase&#x27;)       //=&gt; &quot;camel case&quot;</span><br><span class="line">noCase(&#x27;Beyoncé Knowles&#x27;) //=&gt; &quot;beyoncé knowles&quot;</span><br><span class="line"></span><br><span class="line">noCase(&#x27;A STRING&#x27;, &#x27;tr&#x27;) //=&gt; &quot;a strıng&quot;</span><br><span class="line"></span><br><span class="line">noCase(&#x27;HELLO WORLD!&#x27;, null, &#x27;_&#x27;) //=&gt; &quot;hello_world&quot;</span><br></pre></td></tr></table></figure>
 
 <h2 id="node-readme"><a href="#node-readme" class="headerlink" title="node-readme"></a>node-readme</h2><p>采用一个ES6的模板，自动生成README.md文件</p>
 <ul>
@@ -452,7 +373,7 @@
 <ul>
 <li>使用<br>在package.json文件中为你的模块增加一个命令：然后可以用 npm run readme 命令来生成README.md文件</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;readme&quot;: &quot;node .&#x2F;node_modules&#x2F;.bin&#x2F;node-readme&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  &quot;readme&quot;: &quot;node ./node_modules/.bin/node-readme&quot;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <p><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Jldm9sdW5ldC9ub2RlLXJlYWRtZS9ibG9iL21hc3Rlci9zcmMvLlJFQURNRS5tZA==">详细模板<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>通配符匹配：Glob： <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2lzYWFjcy9ub2RlLWdsb2I=">https://github.com/isaacs/node-glob<i class="fa fa-external-link-alt"></i></span><br>时间处理工具：Moments：<span class="exturl" data-url="aHR0cDovL21vbWVudGpzLmNvbS8=">http://momentjs.com/<i class="fa fa-external-link-alt"></i></span><br>项目生成器脚手架： <span class="exturl" data-url="aHR0cDovL3llb21hbi5pby8=">http://yeoman.io/<i class="fa fa-external-link-alt"></i></span></p>
 
@@ -462,97 +383,65 @@
     
     
 
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Nodejs/" rel="tag"><i class="fa fa-tag"></i> Nodejs</a>
           </div>
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/zh-cn/2016/9/9/Nodejs-Package-json-%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html" rel="prev" title="Nodejs Package.json 简要说明">
-      <i class="fa fa-chevron-left"></i> Nodejs Package.json 简要说明
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/zh-cn/2016/9/9/hexo%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html" rel="next" title="Hexo源码分析">
-      Hexo源码分析 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/zh-cn/2016/9/9/Nodejs-Package-json-%E7%AE%80%E8%A6%81%E8%AF%B4%E6%98%8E.html" rel="prev" title="Nodejs Package.json 简要说明">
+                  <i class="fa fa-angle-left"></i> Nodejs Package.json 简要说明
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/zh-cn/2016/9/9/hexo%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90.html" rel="next" title="Hexo源码分析">
+                  Hexo源码分析 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
 
-        </div>
-        
-    
-  <div class="comments">
-    <div id="SOHUCS"></div>
-  </div>
-  
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-      </div>
-    </main>
 
-    <footer class="footer">
-      <div class="footer-inner">
-        
+    <div class="comments" id="SOHUCS" sid="40143984b871f3ce5d4f7ab21f9ca349"></div>
+</div>
+  </main>
 
-        
+  <footer class="footer">
+    <div class="footer-inner">
 
-<div class="copyright">
-  
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">uDock</span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-area"></i>
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
     </span>
-    <span title="站点总字数">23k</span>
-    <span class="post-meta-divider">|</span>
+    <span class="author" itemprop="copyrightHolder">uDock</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">10k</span>
+  </span>
+  <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:03</span>
+    <span title="站点阅读时长">1:23</span>
+  </span>
 </div>
-
-        
 <div class="busuanzi-count">
-  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
@@ -560,8 +449,7 @@
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
@@ -571,16 +459,23 @@
     </span>
 </div>
 
+    </div>
+  </footer>
 
-
-
-
-
-
-
-      </div>
-    </footer>
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
   </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
   <script src="//cdn.jsdelivr.net/npm/animejs@3/lib/anime.min.js"></script>
@@ -588,136 +483,28 @@
   <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/pjax.js"></script>
 
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
 
-<script src="/js/bookmark.js"></script>
-
-  <script>
-var pjax = new Pjax({
-  selectors: [
-    'head title',
-    '#page-configurations',
-    '.main-inner',
-    '.post-toc-wrap',
-    '.languages',
-    '#pjax'
-  ],
-  switches: {
-    '.post-toc-wrap': Pjax.switches.innerHTML
-  },
-  analytics: false,
-  cacheBust: false,
-  scrollTo : !CONFIG.bookmark.enable
-});
-
-document.addEventListener('pjax:success', () => {
-  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
-    var code = element.text || element.textContent || element.innerHTML || '';
-    var parent = element.parentNode;
-    parent.removeChild(element);
-    var script = document.createElement('script');
-    if (element.id) {
-      script.id = element.id;
-    }
-    if (element.className) {
-      script.className = element.className;
-    }
-    if (element.type) {
-      script.type = element.type;
-    }
-    if (element.src) {
-      script.src = element.src;
-      // Force synchronous loading of peripheral JS.
-      script.async = false;
-    }
-    if (element.dataset.pjax !== undefined) {
-      script.dataset.pjax = '';
-    }
-    if (code !== '') {
-      script.appendChild(document.createTextNode(code));
-    }
-    parent.appendChild(script);
-  });
-  NexT.boot.refresh();
-  // Define Motion Sequence & Bootstrap Motion.
-  if (CONFIG.motion.enable) {
-    NexT.motion.integrator
-      .init()
-      .add(NexT.motion.middleWares.subMenu)
-      .add(NexT.motion.middleWares.postList)
-      .bootstrap();
-  }
-  NexT.utils.updateSidebarPosition();
-});
-</script>
-
-
-  
-  <script data-pjax>
-    (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":false,"archive":false,"delay":true,"timeout":3000,"priority":true,"ignores":null,"url":"http://blog.udock.cn/zh-cn/2016/9/9/NodeJs%E5%AE%9E%E7%94%A8%E5%BA%93%E5%8F%82%E8%80%83.html"}</script>
+  <script src="/js/third-party/quicklink.js"></script>
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cysskePLl","appkey":"bbbb4f5d897d0b979ef3876ee4bc8a9a","count":true}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
 
-
-
-
-
-
-
-
-
-    <div id="pjax">
-  
-
-  
-  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
-  <script>
-      window.addEventListener('load', () => {
-      quicklink({
-        timeout : 3000,
-        priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'http://blog.udock.cn/zh-cn/2016/9/9/NodeJs%E5%AE%9E%E7%94%A8%E5%BA%93%E5%8F%82%E8%80%83.html',]
-      });
-      });
-  </script>
-
-  <script>
-  NexT.utils.loadComments(document.querySelector('#SOHUCS'), () => {
-    var appid = 'cysskePLl';
-    var conf = 'bbbb4f5d897d0b979ef3876ee4bc8a9a';
-    var width = window.innerWidth || document.documentElement.clientWidth;
-    if (width < 960) {
-      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
-    } else {
-      var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});
-    }
-  });
-  </script>
-  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
-
-    </div>
 </body>
 </html>
